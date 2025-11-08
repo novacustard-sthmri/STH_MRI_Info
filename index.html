@@ -62,6 +62,7 @@
                 <p class="text-sm font-medium">Payroll No: <span id="display-payrollNumber" class="font-bold"></span></p>
                 <p class="text-sm font-medium">Email: <span id="display-userEmail" class="font-bold"></span></p>
                 <p class="text-sm font-medium">Contracted Hours: <span id="display-contractedHours" class="font-bold"></span></p>
+				<p id="device-info" class="text-xs text-indigo-700 mt-1"></p>
             </div>
             <button onclick="editProfile()" class="text-indigo-600 hover:text-indigo-800 text-sm font-semibold py-1 px-3 rounded-lg bg-white/50 hover:bg-white transition">
                 Change
@@ -266,7 +267,51 @@
 
 
         // --- UTILITY FUNCTIONS ---
+		// --- DEVICE DETECTION ---
 
+/**
+ * @description Detects and returns the user's device type and browser name.
+ * @returns {string} Formatted string like "Device: Windows PC, Browser: Chrome"
+ */
+function detectDeviceAndBrowser() {
+    const userAgent = navigator.userAgent;
+    let device = 'Unknown Device';
+    let browser = 'Unknown Browser';
+
+    // 1. Detect Device Type
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        device = 'iOS (iPhone/iPad)';
+    } else if (/Android/.test(userAgent)) {
+        device = 'Android Mobile';
+    } else if (/Macintosh|Mac OS X/.test(userAgent)) {
+        device = 'Mac/OSX PC';
+    } else if (/Windows/.test(userAgent)) {
+        device = 'Windows PC';
+    } else if (/Linux/.test(userAgent)) {
+        device = 'Linux PC';
+    } else if (/CrOS/.test(userAgent)) {
+        device = 'ChromeOS';
+    }
+
+    // 2. Detect Browser
+    if (userAgent.indexOf("Edg") !== -1) {
+        browser = "Microsoft Edge";
+    } else if (userAgent.indexOf("Chrome") !== -1 && userAgent.indexOf("Edg") === -1) {
+        // Check for Edge first, then Chrome
+        browser = "Google Chrome";
+    } else if (userAgent.indexOf("Safari") !== -1) {
+        // Must check Safari after Chrome/Edge as they also contain "Safari"
+        browser = "Safari";
+    } else if (userAgent.indexOf("Firefox") !== -1) {
+        browser = "Mozilla Firefox";
+    } else if (userAgent.indexOf("Trident") !== -1 || userAgent.indexOf("MSIE") !== -1) {
+        browser = "Internet Explorer";
+    }
+
+    return `System: ${device}, Browser: ${browser}`;
+}
+
+		
         // Helper: Convert "HH:MM" string to minutes from midnight
         function timeToMinutes(timeStr) {
             if (!timeStr) return 0;
@@ -386,7 +431,9 @@ function formatHours(minutes) {
                 document.getElementById('display-userEmail').textContent = userProfile.userEmail; 
                 // NEW: Display contracted hours
                 document.getElementById('display-contractedHours').textContent = `${userProfile.contractedHours} Hours`;
-                
+                // NEW: Display device and browser info
+                document.getElementById('device-info').textContent = detectDeviceAndBrowser();
+				
                 displaySection.classList.remove('hidden');
                 inputSection.classList.add('hidden');
             } else {
@@ -1517,5 +1564,6 @@ function formatHours(minutes) {
     </script>
 </body>
 </html>
+
 
 
