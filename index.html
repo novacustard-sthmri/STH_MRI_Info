@@ -273,6 +273,11 @@
         const PROFILE_KEY = 'userProfile';
         const SHIFTS_KEY = 'userShifts';
 
+		// Detect if the user is on an Apple device (Mac, iPhone, iPad, iPod)
+		const isAppleDevice = /Macintosh|Mac OS|iPhone|iPad|iPod/.test(navigator.userAgent);
+
+		// Define print scale: Default is 100% (1.0). For Apple devices, it's 73% (0.73) for PDF compatibility.
+		const PRINT_SCALE_FACTOR = isAppleDevice ? 0.73 : 1.0;
 
         // --- UTILITY FUNCTIONS ---
 		// --- DEVICE DETECTION ---
@@ -1137,7 +1142,22 @@ function formatHours(minutes) {
                 alert("Please generate the report first before attempting to print.");
                 return;
             }
-            
+
+			// NEW CODE START: Use the constant PRINT_SCALE_FACTOR to set the CSS
+  			// Generate the CSS string dynamically using the calculated factor (e.g., 0.73 or 1.0)
+    		const printScaleCss = `
+    		@media print {
+        	body {
+            	/* Apply the calculated scale factor (e.g., scale(0.73) or scale(1.0)) */
+           	 transform: scale(${PRINT_SCALE_FACTOR});
+           	 transform-origin: top left;
+            	margin: 0;
+            	padding: 0;
+        }
+    }
+`;
+    // NEW CODE END
+			
             // Re-calculate Grand Totals for the 13 columns (using cached data)
             const grandTotals = shiftsInMonth.reduce((acc, shift) => {
                 acc.uhSat += shift.uhSat || 0;
@@ -1212,6 +1232,11 @@ function formatHours(minutes) {
                     <head>
                         <title>UNSOCIAL HOURS & OVERTIME CLAIM FORM - ${monthName}</title>
                    <style>
+
+//////////////// ===========================				   
+				   ${printScaleCss} /* INJECT THE DYNAMIC PRINT SCALE CSS */
+//////////////// ===========================
+
     /* A4 Portrait specific styles */
     @page { size: A4 portrait; margin: 15mm; }
     body { 
@@ -1572,6 +1597,7 @@ function formatHours(minutes) {
     </script>
 </body>
 </html>
+
 
 
 
