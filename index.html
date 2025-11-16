@@ -18,7 +18,7 @@
             transition: all 0.2s;
             @apply border border-gray-200 p-2 rounded-lg relative text-sm;<div class="flex items-center text-xs text-indigo-700 mt-1">
            <div class="flex items-center text-xs text-indigo-700 mt-1">
-            <p class="font-medium mr-4">Version: <span class="font-bold">1.9d RT</span></p>
+            <p class="font-medium mr-4">Version: <span class="font-bold">1.9e RT</span></p>
             <p id="device-info"></p> 
         </div>
         </div>version
@@ -60,7 +60,7 @@
             <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Personal Shift Tracker     </h1>
         </header>
 		
-		<p class="text-xs text-right">Version: <span class="font-bold">1.9d RT</span> <span id="device-info"></span></p>
+		<p class="text-xs text-right">Version: <span class="font-bold">1.9e RT</span> <span id="device-info"></span></p>
 		
         <div id="displayed-profile-section" class="bg-indigo-50 p-4 rounded-xl shadow-inner mb-4 flex justify-between items-center hidden">
             <div class="text-indigo-900 space-y-1">
@@ -1665,12 +1665,13 @@ window.showPrintInstructions = function() {
 
     // --- Define Instructions ---
     const commonSteps = `
-        <p class="text-sm font-semibold mt-4 text-gray-800">Common Steps for All Devices:</p>
+        <p class="text-sm font-semibold mt-4 text-gray-800">Common Steps for Android/Apple/Windows devices:</p>
         <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
-            <li><strong>Select Destination:</strong> Choose 'Save as PDF' or your physical printer.</li>
-            <li><strong>Layout/Orientation:</strong> Ensure 'Portrait' is selected.</li>
-            <li><strong>Margins:</strong> Select 'None' or 'Minimum'.</li>
-            <li><strong>Headers/Footers:</strong> Disable this option to remove page numbers/titles.</li>
+            <li><strong>Select Destination:</strong> Choose 'Save as PDF'</li>
+            <li><strong>Layout/Orientation:</strong> Ensure 'Portrait' is selected</li>
+			<li><strong>Page Size:</strong> Select A4 or ISO A4</li>
+            <li><strong>Print Preview Check:</strong> Makesure the timesheet fits on one page</li>
+			<li><strong>                    </strong> - adjust print scale if necessary</li>
         </ul>
     `;
     
@@ -1679,7 +1680,7 @@ window.showPrintInstructions = function() {
         <h4 class="font-bold text-lg text-indigo-700">Apple Devices (Mac/iPhone/iPad)</h4>
         <p class="text-sm">Apple devices (Safari/Chrome/Edge) sometimes apply an incorrect default scale. You may need to adjust the scale.</p>
         <ul class="list-disc list-inside space-y-1 ml-4 text-sm font-medium">
-            <li><strong>Scale:</strong> Set 'Scale' to **100%** or use the custom scale setting provided in the report modal if the content appears too small.</li>
+            <li><strong>Scale:</strong> Adjust 'Scale' until the print preview shows a single page (73%)</li>
         </ul>
     `;
 
@@ -1775,4 +1776,5 @@ window.closeReportModal = function() {
     </script>
 </body>
 </html>
+
 
