@@ -1667,7 +1667,6 @@ window.showPrintInstructions = function() {
     const commonSteps = `
         <p class="text-sm font-semibold mt-4 text-gray-800">Common Steps for Android/Apple/Windows devices:</p>
         <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
-            <li><strong>Select Destination:</strong> Choose 'Save as PDF'</li>
             <li><strong>Layout/Orientation:</strong> Ensure 'Portrait' is selected</li>
 			<li><strong>Page Size:</strong> Select A4 or ISO A4</li>
             <li><strong>Print Preview Check:</strong> Makesure the timesheet fits on one page</li>
@@ -1681,6 +1680,8 @@ window.showPrintInstructions = function() {
         <p class="text-sm">Apple devices (Safari/Chrome/Edge) sometimes apply an incorrect default scale. You may need to adjust the scale.</p>
         <ul class="list-disc list-inside space-y-1 ml-4 text-sm font-medium">
             <li><strong>Scale:</strong> Adjust 'Scale' until the print preview shows a single page (73%)</li>
+			<li><strong>Select Destination:</strong> Choose Share to send via email or save to a folder</li>
+			<li><strong>Send as an emmail attachement to sth.mritimesheets@nhs.net</strong></li>
         </ul>
     `;
 
@@ -1689,6 +1690,7 @@ window.showPrintInstructions = function() {
         <p class="text-sm">The report is optimized for a full-page width in Portrait mode. Check your settings before printing.</p>
         <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
             <li><strong>Scale:</strong> Ensure 'Default', '100%', or 'Fit to page' is selected.</li>
+			<li><strong>Send as an emmail attachement to sth.mritimesheets@nhs.net</strong></li>
         </ul>
     `;
 
@@ -1697,6 +1699,7 @@ window.showPrintInstructions = function() {
         <p class="text-sm">Mobile printing can vary by device and browser. Please ensure the scale is appropriate to fit the full table width.</p>
         <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
             <li><strong>Scale:</strong> Use 'Fit to Page' or check the scale is close to 100%.</li>
+			<li><strong>Send as an emmail attachement to sth.mritimesheets@nhs.net</strong></li>
         </ul>
     `;
 
@@ -1776,5 +1779,6 @@ window.closeReportModal = function() {
     </script>
 </body>
 </html>
+
 
 
