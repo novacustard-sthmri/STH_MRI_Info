@@ -1,2 +1,1 @@
-v1.8 of the timesheet app. Moved to github to overcome file restrictions on apple devices preventing it from displaying and functioning correctly. 
-Access at https://novacustard-sthmri.github.io/timesheet/
+
