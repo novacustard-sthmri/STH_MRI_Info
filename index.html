@@ -319,7 +319,8 @@
                     <p>An MRI scan is an examination used to diagnose medical conditions, injuries, or diseases. Once the scan is complete, a radiologist analyzes the images and sends a report to your doctor, clinical nurse specialist, or Allied Health professional (e.g., Physiotherapist).</p>
                     <p>The scanner works by using a strong magnetic field and radio waves to interact with the hydrogen atoms naturally found in your body. A special coil, placed over the part of the body being examined, detects signals produced by these atoms. Because different tissues—such as fat, muscle, and bone—produce different signals, a computer is able to translate this information into detailed images.</p>
                     
-                    <!-- MRI IMAGE GALLERY -->
+                    <h3 style="text-align: center; margin-top: 30px; color: var(--sth-dark-blue);">Our MRI Scanners</h3>
+                    <!-- MRI SCANNER GALLERY -->
                     <div class="gallery-container">
                         <div class="gallery-image-wrapper">
                             <!-- Image src is set by JavaScript below -->
@@ -334,6 +335,21 @@
     
                     <p><strong>How can MRI help?</strong><br>
                     MRI is used to visualise and distinguish selected areas of the body from surrounding tissues. MRI is particularly good for looking at muscles and soft tissue structures, such as the brain. An MRI scan can also help your doctor plan or carry out future treatments.</p>
+
+                    <!-- NEW: MRI SCANS GALLERY -->
+                    <h3 style="text-align: center; margin-top: 30px; color: var(--sth-dark-blue);">Examples of MRI Scans</h3>
+                    <div class="gallery-container">
+                        <div class="gallery-image-wrapper">
+                            <!-- Image src is set by JavaScript below -->
+                            <img id="mri-scan-image" src="" alt="Example of an MRI Scan">
+                        </div>
+                        <div class="gallery-controls">
+                            <button id="scan-btn-prev" class="gallery-btn">&laquo; Previous</button>
+                            <span id="scan-counter" class="gallery-counter">Image 1 of X</span>
+                            <button id="scan-btn-next" class="gallery-btn">Next &raquo;</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             
@@ -478,7 +494,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 9: How to find us (NEW) -->
+            <!-- SECTION 9: How to find us -->
             <button class="accordion-btn">How to find us</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
@@ -546,7 +562,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT: Accordions & Image Gallery -->
+    <!-- JAVASCRIPT: Accordions & Image Galleries -->
     <script>
         // --- 1. ACCORDION LOGIC ---
         var acc = document.getElementsByClassName("accordion-btn");
@@ -567,18 +583,15 @@
             });
         }
 
-        // --- 2. IMAGE GALLERY LOGIC ---
-
-        // IMPORTANT: List the exact filenames of your images here.
-        // They must be located in the SAME FOLDER as this index.html file.
+        // --- 2. MRI SCANNER GALLERY LOGIC (First Gallery) ---
         const imageFiles = [
-            'mri-scanner-1.jpg',
-            'mri-scanner-2.jpg',
-            'mri-scanner-3.jpg',
-            'mri-scanner-4.jpg',
-            'mri-scanner-5.jpg',
-            'mri-scanner-6.jpg',
-         //   'mri-scanner-7.jpg'
+            'scanner1.jpg',
+            'scanner2.jpg',
+            'scanner3.jpg',
+            'scanner4.jpg',
+            'scanner5.jpg',
+            'scanner6.jpg',
+            'scanner7.jpg'
         ];
 
         let currentImageIndex = 0;
@@ -586,46 +599,94 @@
         const counterElement = document.getElementById('gallery-counter');
 
         function updateGallery() {
-            // Update image source
             imgElement.src = imageFiles[currentImageIndex];
-            
-            // Update counter text
             counterElement.textContent = `Image ${currentImageIndex + 1} of ${imageFiles.length}`;
-            
-            // Add a small fade effect reset (optional, purely visual)
             imgElement.style.opacity = 0;
             setTimeout(() => { imgElement.style.opacity = 1; }, 50);
         }
 
-        // Initialize Random Image
         if (imageFiles.length > 0) {
             currentImageIndex = Math.floor(Math.random() * imageFiles.length);
-            // Ensure the image fades in smoothly on load
             imgElement.style.transition = "opacity 0.3s ease-in-out";
             updateGallery();
         }
 
-        // Button Event Listeners
         document.getElementById('btn-prev').addEventListener('click', function(e) {
-            e.stopPropagation(); // Stop the accordion from closing when clicking button
+            e.stopPropagation();
             currentImageIndex--;
-            if (currentImageIndex < 0) {
-                currentImageIndex = imageFiles.length - 1; // Loop to end
-            }
+            if (currentImageIndex < 0) currentImageIndex = imageFiles.length - 1;
             updateGallery();
         });
 
         document.getElementById('btn-next').addEventListener('click', function(e) {
-            e.stopPropagation(); // Stop the accordion from closing when clicking button
+            e.stopPropagation();
             currentImageIndex++;
-            if (currentImageIndex >= imageFiles.length) {
-                currentImageIndex = 0; // Loop to start
-            }
+            if (currentImageIndex >= imageFiles.length) currentImageIndex = 0;
             updateGallery();
         });
 
+        // --- 3. MRI SCANS GALLERY LOGIC (Second Gallery) ---
+        // IMPORTANT: Rename your scan images to match these names:
+        const scanFiles = [
+            'Picture1.jpg',
+            'Picture2.jpg',
+            'Picture3.jpg',
+            'Picture4.jpg',
+            'Picture5.jpg',
+            'Picture6.jpg',
+            'Picture7.jpg',
+            'Picture8.jpg',
+            'Picture9.jpg',
+            'Picture10.jpg',
+            'Picture11.jpg',
+            'Picture12.jpg',
+            'Picture13.jpg',
+            'Picture14.jpg',
+            'Picture15.jpg',
+            'Picture16.jpg',
+            'Picture17.jpg',
+            'Picture18.jpg',
+            'Picture19.jpg',
+            'Picture20.jpg',
+            'Picture21.jpg',
+            'Picture22.jpg',
+            'Picture23.jpg',
+            'Picture24.jpg',
+            'Picture25.jpg',
+            'Picture26.jpg'
+        ];
+
+        let currentScanIndex = 0;
+        const scanImgElement = document.getElementById('mri-scan-image');
+        const scanCounterElement = document.getElementById('scan-counter');
+
+        function updateScanGallery() {
+            scanImgElement.src = scanFiles[currentScanIndex];
+            scanCounterElement.textContent = `Image ${currentScanIndex + 1} of ${scanFiles.length}`;
+            scanImgElement.style.opacity = 0;
+            setTimeout(() => { scanImgElement.style.opacity = 1; }, 50);
+        }
+
+        if (scanFiles.length > 0) {
+            currentScanIndex = Math.floor(Math.random() * scanFiles.length);
+            scanImgElement.style.transition = "opacity 0.3s ease-in-out";
+            updateScanGallery();
+        }
+
+        document.getElementById('scan-btn-prev').addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentScanIndex--;
+            if (currentScanIndex < 0) currentScanIndex = scanFiles.length - 1;
+            updateScanGallery();
+        });
+
+        document.getElementById('scan-btn-next').addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentScanIndex++;
+            if (currentScanIndex >= scanFiles.length) currentScanIndex = 0;
+            updateScanGallery();
+        });
     </script>
 
 </body>
 </html>
-
