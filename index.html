@@ -1,33 +1,135 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%;">
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Magnetic Resonance Imaging (MRI) - Sheffield Teaching Hospital</title>
-	<meta name="description" content="Information about MRI scans at Sheffield Teaching Hospitals">
-	<meta name="keywords" content="MRI, Scan, Radiology, Sheffield">
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Magnetic Resonance Imaging (MRI) - Sheffield Teaching Hospitals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- External Dependencies (jQuery & Bootstrap JS for Accordions) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<!-- [Original Meta Tags & Icons kept intact] -->
-	<meta name="copyright" content="Sheffield Teaching Hospitals NHS Foundation Trust">
-	<meta http-equiv="x-dns-prefetch-control" content="on">
-	<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-	<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
-	<link rel="dns-prefetch" href="https://ajax.googleapis.com/">
-	<link rel="stylesheet" href="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/bootstrap.min.css" type="text/css" media="all">
-	<link rel="stylesheet" href="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/style.css" type="text/css" media="all">
-	<link rel="icon" type="image/png" href="https://www.sth.nhs.uk/favicon-96x96.png" sizes="96x96">
-	
-	<!-- [Original Scripts kept intact] -->
-	<script type="text/javascript" src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/jquery-1.12.4.min.js.download"></script>
-	<script type="text/javascript" src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/bootstrap.min.js.download" defer="defer"></script>
-
-    <!-- Custom Style Override for Gallery (if needed for this specific page) -->
     <style>
+        /* --- 1. BOOTSTRAP 3.3.7 MINIFIED CSS --- */
+        /*!
+         * Bootstrap v3.3.7 (http://getbootstrap.com)
+         * Copyright 2011-2016 Twitter, Inc.
+         * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+         */
+        html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{margin:.67em 0;font-size:2em}mark{color:#000;background:#ff0}small{font-size:80%}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{height:0;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{margin:0;font:inherit;color:inherit}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}input{line-height:normal}input[type=checkbox],input[type=radio]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-appearance:textfield}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{padding:.35em .625em .75em;margin:0 2px;border:1px solid silver}legend{padding:0;border:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-spacing:0;border-collapse:collapse}td,th{padding:0}
+        
+        /* Layout & Grid */
+        .container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container{width:750px}}@media (min-width:992px){.container{width:970px}}@media (min-width:1200px){.container{width:1170px}}.container-fluid{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}.row{margin-right:-15px;margin-left:-15px}.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12{position:relative;min-height:1px;padding-right:15px;padding-left:15px;float:left}
+        .col-xs-12{width:100%}.col-xs-11{width:91.66666667%}.col-xs-10{width:83.33333333%}.col-xs-2{width:16.66666667%}
+        @media (min-width:768px){.col-sm-4{width:33.33333333%}.col-sm-6{width:50%}}
+        @media (min-width:992px){.col-md-1{width:8.33333333%}.col-md-11{width:91.66666667%}}
+
+        /* Forms & Buttons */
+        .form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;}
+        .btn{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;cursor:pointer;border:1px solid transparent;border-radius:4px}
+        .btn-primary{color:#fff;background-color:#337ab7;border-color:#2e6da4}
+        .btn-default{color:#333;background-color:#fff;border-color:#ccc}
+        .btn-block{display:block;width:100%}
+
+        /* Navbar */
+        .navbar{position:relative;min-height:50px;margin-bottom:20px;border:1px solid transparent}
+        .navbar-collapse{padding-right:15px;padding-left:15px;overflow-x:visible;border-top:1px solid transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+        .navbar-header{margin-right:-15px;margin-left:-15px}
+        .navbar-toggle{position:relative;float:right;padding:9px 10px;margin-top:8px;margin-right:15px;margin-bottom:8px;background-color:transparent;border:1px solid transparent;border-radius:4px}
+        .navbar-toggle .icon-bar{display:block;width:22px;height:2px;border-radius:1px;background-color:#888}
+        .navbar-toggle .icon-bar+.icon-bar{margin-top:4px}
+        .navbar-nav{margin:7.5px -15px}
+        .navbar-nav>li>a{padding-top:10px;padding-bottom:10px;line-height:20px}
+        @media (min-width:768px){.navbar-header{float:left}.navbar-collapse{width:auto;border-top:0;box-shadow:none}.navbar-collapse.collapse{display:block!important;height:auto!important;padding-bottom:0;overflow:visible!important}.navbar-nav{float:left;margin:0}.navbar-nav>li{float:left}.navbar-nav>li>a{padding-top:15px;padding-bottom:15px}}
+
+        /* Panels (Accordions) */
+        .panel{margin-bottom:20px;background-color:#fff;border:1px solid transparent;border-radius:4px;box-shadow:0 1px 1px rgba(0,0,0,.05)}
+        .panel-body{padding:15px}
+        .panel-heading{padding:10px 15px;border-bottom:1px solid transparent;border-top-left-radius:3px;border-top-right-radius:3px}
+        .panel-title{margin-top:0;margin-bottom:0;font-size:16px;color:inherit}
+        .panel-title>a{color:inherit}
+        .panel-default{border-color:#ddd}
+        .panel-default>.panel-heading{color:#333;background-color:#f5f5f5;border-color:#ddd}
+        .panel-group .panel{margin-bottom:0;border-radius:4px}
+        .panel-group .panel+.panel{margin-top:5px}
+        .collapse{display:none}.collapse.in{display:block}
+
+        /* Utilities */
+        .text-left{text-align:left}.text-center{text-align:center}
+        .small{font-size:85%}
+        .img-responsive{display:block;max-width:100%;height:auto}
+        .caret{display:inline-block;width:0;height:0;margin-left:2px;vertical-align:middle;border-top:4px dashed;border-right:4px solid transparent;border-left:4px solid transparent}
+        .hidden-xs{display:none!important}@media (min-width:768px){.hidden-xs{display:block!important}}
+        .hidden-sm{display:none!important}@media (min-width:992px){.hidden-sm{display:block!important}}
+        .visible-xs{display:block!important}@media (min-width:768px){.visible-xs{display:none!important}}
+        
+        /* Icons */
+        @font-face{font-family:'Glyphicons Halflings';src:url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2') format('woff2');}
+        .glyphicon{position:relative;top:1px;display:inline-block;font-family:'Glyphicons Halflings';font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased}
+        .glyphicon-search:before{content:"\e003"}
+        .glyphicon-arrow-up:before{content:"\e093"}
+        .glyphicon-option-vertical:before{content:"\e235"}
+
+        /* --- 2. STH CUSTOM STYLES (From your provided style.css) --- */
+        body { font-family: 'Open Sans', sans-serif; color: #000; background: #fff; position: relative; }
+        h1, h2, h3, h4, h5, h6 { font-weight: bold; color: #000; }
+        a, a:hover { color: #000; text-decoration: none; }
+        .body_content a, .body_content a:hover { color: #005EB8; }
+        a:hover { text-decoration: underline; }
+
+        /* Navbar Specifics */
+        #navbar_supplementary { background-color: #005EB8; border: 0; padding: 0; min-height: 0; }
+        #navbar_supplementary a { color: #fff; font-weight: bold; font-size: 14px; border-left: 1px solid #b3d4fc; padding: 5px 15px; }
+        #navbar_main { background-color: #fff; border: 0; margin-bottom: 0; }
+        #top_menu a { padding: 10px; font-weight: bold; }
+        #top_menu a:hover, #top_menu li.active > a, #top_menu .open > a { color: #005EB8; background-color: #fff; }
+        
+        .navbar-brand { padding: 10px; height: auto; }
+        .navbar-brand > img { height: 60px; }
+
+        /* Mobile Menu */
+        #mobile_side_menu_header { background-color: #a3a3a3; padding: 15px; color: white; font-weight: bold; }
+        #mobile_side_menu_header a { color: white; display: block; }
+        #mobile_side_menu_header_icon { float: right; }
+
+        /* Breadcrumbs */
+        #breadcrumb_trail_container { background-color: #fff; padding: 10px 0; }
+        ol.breadcrumb_trail { list-style: none; padding-left: 0; margin-bottom: 0; }
+        ol.breadcrumb_trail li { display: inline-block; font-size: 90%; }
+        ol.breadcrumb_trail li a { color: #000; }
+
+        /* CMS Sections */
+        .cms_section { padding-top: 20px; padding-bottom: 20px; }
+        .cms_section.cms_blue { background-color: #005EB8; color: #fff; }
+        .cms_section.cms_blue h1 { color: #fff; margin: 0; font-size: 36px; }
+        
+        /* Footer */
+        #client_footer { padding-top: 20px; padding-bottom: 20px; background-color: #E8EDEE; }
+        #footer { padding-top: 20px; padding-bottom: 80px; background-color: #36363c; color: #c5cabb; }
+        #footer a { color: #c5cabb; }
+        
+        /* Social Media Icons */
+        #social_media_links a { display: inline-block; margin-right: 15px; filter: invert(50%); }
+        #social_media_links a:hover { filter: invert(0); }
+
+        /* Search */
+        #search_container { padding: 15px 0; background: #fff; }
+        #search_container input { border-radius: 20px 0 0 20px; }
+        #search_container button { border-radius: 0 20px 20px 0; }
+        .no-right-padding { padding-right: 0 !important; }
+        .no-left-padding { padding-left: 0 !important; }
+
+        /* ReciteMe */
+        .reciteme { position: fixed; top: 20px; right: 30px; z-index: 99998; background: transparent; border: none; }
+
+        /* Back to top */
+        #back_to_top_btn { position: fixed; bottom: 20px; right: 30px; z-index: 99; border-radius: 50px; background: #fff; display: block; padding: 10px 15px; border: 1px solid #ccc; }
+
+        /* --- 3. CUSTOM MRI GALLERY STYLES --- */
         .gallery-image-wrapper {
             background-color: #fff;
             border: 1px solid #eee;
-            height: 350px;
+            height: 350px; /* Fixed height to prevent jumping */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -38,33 +140,40 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            transition: opacity 0.3s ease-in-out;
         }
         .gallery-controls {
             text-align: center;
             padding-bottom: 20px;
         }
+        
+        /* STH List styling */
+        ul li { margin-bottom: 5px; }
     </style>
 </head>
 
-<body style="position: relative; min-height: 100%; top: 0px;">
+<body>
 
-<!-- [ACCESSIBILITY & TRANSLATE TOOLS KEPT INTACT] -->
-<button id="enableRecite" type="button" aria-label="ReciteMe" class="reciteme btn"><img src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/accessibility_image.png" alt="Recite me accessibility" width="65" height="64"></button>
+<!-- RECITE ME BUTTON -->
+<button id="enableRecite" type="button" aria-label="ReciteMe" class="reciteme btn"><img src="https://www.sth.nhs.uk/images/accessibility_image.png" alt="Recite me accessibility" width="65" height="64"></button>
 
+<!-- TOP NAV (Blue) -->
 <nav id="navbar_supplementary" class="navbar hidden-xs hidden-sm">
 	<div class="container-fluid">
 		<div class="navbar-left">&nbsp;</div>
 		<div class="navbar-right">
 			<ul class="nav navbar-nav">
 				<li><a href="https://www.sth.nhs.uk/accessibility/">Accessibility</a></li>
-                <!-- [Google Translate Code kept] -->
-				<li><a href="#" id="search_icon" aria-label="Search icon" data-toggle="collapse" data-target="#search_container"><img src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/search-white.png" alt="Search"></a></li>
+                <!-- Search Icon -->
+				<li>
+					<a href="#" id="search_icon" aria-label="Search icon" data-toggle="collapse" data-target="#search_container"><img src="https://www.sth.nhs.uk/images/search-white.png" alt="Search" width="20" height="20"></a>
+				</li>
 			</ul>
 		</div>
 	</div>
 </nav>
 
-<!-- [MAIN NAVIGATION KEPT INTACT] -->
+<!-- MAIN NAV (White) -->
 <nav id="navbar_main" class="navbar affix-top" data-spy="affix" data-offset-top="40">
 	<div class="container-fluid" style="position: relative;">
 		<div class="navbar-header">
@@ -73,11 +182,10 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="https://www.sth.nhs.uk/"><img src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/logo.png" alt="Home"></a>
+			<a class="navbar-brand" href="https://www.sth.nhs.uk/"><img src="https://www.sth.nhs.uk/images/logo.png" alt="Home"></a>
 		</div>
 		<div class="navbar">
 			<div class="collapse navbar-collapse" id="top_menu">
-                <!-- [Full Navigation Menu Structure Kept Intact] -->
                 <ul class="nav navbar-nav">
                     <li class="level1 first_item"><a href="https://www.sth.nhs.uk/">Home</a></li>
                     <li class="level1 dropdown"><a href="https://www.sth.nhs.uk/find-hospitals-and-services/">Hospitals &amp; services <span class="caret"></span></a></li>
@@ -90,11 +198,12 @@
                     <li class="level1 dropdown"><a href="https://www.sth.nhs.uk/news/">News <span class="caret"></span></a></li>
                     <li class="level1 last_item dropdown"><a href="https://www.sth.nhs.uk/contact-us/">Contact <span class="caret"></span></a></li>
                 </ul>
-				<a class="visible-xs visible-sm" href="#" aria-label="Mobile search icon" id="mobile_search_icon" data-toggle="collapse" data-target="#search_container">Search</a>
+				<a class="visible-xs visible-sm" href="#" aria-label="Mobile search icon" id="mobile_search_icon" data-toggle="collapse" data-target="#search_container"><img src="https://www.sth.nhs.uk/images/search_icon.png" width="22" height="23"> Search</a>
 			</div>
 		</div>
 	</div>
-    <!-- [Search Container Kept] -->
+    
+    <!-- SEARCH CONTAINER -->
 	<div id="search_container" class="container-fluid collapse">
 		<div class="container">
 			<div class="col-xs-12">
@@ -109,31 +218,40 @@
 	</div>
 </nav>
 
-<div class="fixed_header_end"></div>
+<!-- MOBILE SIDE MENU HEADER -->
+<div id="mobile_side_menu_container" class="visible-xs visible-sm">
+    <div id="mobile_side_menu_header">
+        <div class="container">
+            <div class="row">
+                <a href="#" aria-label="Mobile side menu bar" id="mobile_side_menu_header_link" data-toggle="collapse" data-target="#mobile_side_menu_bar">Patients &amp; visitors <span id="mobile_side_menu_header_icon" class="glyphicon glyphicon-option-vertical"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- [BREADCRUMBS MODIFIED FOR MRI] -->
+<!-- BREADCRUMBS -->
 <div id="breadcrumb_trail_container">
     <div class="container">
         <ol class="breadcrumb_trail">
             <li class="first_item"><a href="https://www.sth.nhs.uk/">Home</a> &gt;</li>
             <li><a href="https://www.sth.nhs.uk/patients-visitor-information/">Patients &amp; visitors</a> &gt;</li>
-            <li><a href="#">Radiology</a> &gt;</li>
             <li class="last_item">Magnetic Resonance Imaging (MRI)</li>
         </ol>
     </div>
 </div>
 
+<!-- MAIN CONTENT AREA -->
 <div class="body_content">
     <div id="main_body_signposting">
 
-        <!-- TITLE SECTION -->
+        <!-- TITLE BANNER -->
         <div id="signposting_section_1" class="cms_section cms_blue">
             <div class="container">
                 <h1>Magnetic Resonance Imaging (MRI)</h1>
             </div>
         </div>
 
-        <!-- INTRO TEXT SECTION -->
+        <!-- INTRO TEXT -->
         <div id="signposting_section_3" class="cms_section cms_">
             <div class="container">
                 <table cellpadding="5" cellspacing="5" style="width:100%">
@@ -150,9 +268,9 @@
         </div>
 
     </div>
-</div> <!-- body_content -->
+</div> 
 
-<!-- ACCORDION SECTION (Bootstrap Panels) -->
+<!-- ACCORDION CONTENT -->
 <div class="container">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -171,8 +289,8 @@
                     <p>The scanner works by using a strong magnetic field and radio waves to interact with the hydrogen atoms naturally found in your body. A special coil, placed over the part of the body being examined, detects signals produced by these atoms. Because different tissues—such as fat, muscle, and bone—produce different signals, a computer is able to translate this information into detailed images.</p>
                     
                     <h3 style="color:#005eb8">Our MRI Scanners</h3>
+                    <!-- Gallery 1 -->
                     <div class="gallery-image-wrapper">
-                        <!-- Ensure image file exists in root or update path -->
                         <img id="mri-gallery-image" src="mri-scanner-1.jpg" alt="MRI Scanner at Sheffield Teaching Hospitals" class="img-responsive">
                     </div>
                     <div class="gallery-controls">
@@ -185,8 +303,8 @@
                     MRI is used to visualise and distinguish selected areas of the body from surrounding tissues. MRI is particularly good for looking at muscles and soft tissue structures, such as the brain. An MRI scan can also help your doctor plan or carry out future treatments.</p>
                     
                     <h3 style="color:#005eb8">Examples of MRI Scans</h3>
+                    <!-- Gallery 2 -->
                     <div class="gallery-image-wrapper">
-                        <!-- Ensure image file exists in root or update path -->
                         <img id="mri-scan-image" src="Picture1.jpg" alt="Example of MRI Scan" class="img-responsive">
                     </div>
                     <div class="gallery-controls">
@@ -198,7 +316,7 @@
             </div>
         </div>
 
-        <!-- Panel 2: Before your MRI scan -->
+        <!-- Panel 2: Before your scan -->
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading1">
                 <h4 class="clearfix panel-title">
@@ -239,7 +357,7 @@
             </div>
         </div>
 
-        <!-- Panel 3: Medication and Eating Guidance -->
+        <!-- Panel 3: Medication -->
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading2">
                 <h4 class="clearfix panel-title">
@@ -255,10 +373,10 @@
                         <strong>Specific Exceptions:</strong>
                         <ul>
                             <li><strong>MMRCP (Gall bladder examination):</strong> Fast for 4 hours prior to the exam.</li>
-                            <li><strong>Cardiac Stress Perfusion MRI:</strong> No caffeine for 25 hours prior to the exam (including decaf, tea, coffee, chocolate, energy drinks or coffee based liquors). There are also specific medications to avoid for this scan.</li>
+                            <li><strong>Cardiac Stress Perfusion MRI:</strong> No caffeine for 25 hours prior to the exam.</li>
                         </ul>
                     </div>
-                    <p><strong>Glucose Monitors:</strong> If you have a glucose monitor (i.e., Libre or Dexcom) or a medication skin/dermal patch, please be aware that these may need to be removed during the scan, so please bring a replacement with you.</p>
+                    <p><strong>Glucose Monitors:</strong> If you have a glucose monitor (i.e., Libre or Dexcom) please be aware that these may need to be removed during the scan.</p>
                 </div>
             </div>
         </div>
@@ -280,9 +398,7 @@
                             <div class="alert alert-success">
                                 <strong>You can wear:</strong>
                                 <ul>
-                                    <li>T-shirts</li>
-                                    <li>Leggings</li>
-                                    <li>Pyjamas</li>
+                                    <li>T-shirts, Leggings, Pyjamas</li>
                                     <li>Tracksuits/Joggers (if metal free)</li>
                                 </ul>
                             </div>
@@ -291,12 +407,9 @@
                             <div class="alert alert-danger">
                                 <strong>You should NOT wear:</strong>
                                 <ul>
-                                    <li>Bras (unless metal-free sports bra)</li>
-                                    <li>Jeans or Belts</li>
-                                    <li>Clothing with zips or poppers</li>
+                                    <li>Bras (unless metal-free)</li>
+                                    <li>Jeans, Belts, Zips</li>
                                     <li>Sportswear with silver/metal threads</li>
-                                    <li>Jewellery, watches, fitness bands</li>
-                                    <li>Heavy eye make-up or glitter</li>
                                 </ul>
                             </div>
                         </div>
@@ -305,7 +418,7 @@
             </div>
         </div>
 
-        <!-- Panel 5: Asking for your consent -->
+        <!-- Panel 5: Consent -->
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading4">
                 <h4 class="clearfix panel-title">
@@ -317,12 +430,11 @@
             <div class="panel-collapse collapse" role="tabpanel" id="collapse4">
                 <div class="panel-body">
                     <p>We want you to be fully involved in decisions about your care. Before we carry out the scan, we are required by law to ask for your consent.</p>
-                    <p>This simply means that you understand what the scan involves—including the benefits and risks—and that you agree to go ahead. Our staff will explain everything to you clearly before asking for your verbal permission. If you are unsure about anything, please do not hesitate to ask us to explain it again.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Panel 6: What are the risks? -->
+        <!-- Panel 6: Risks -->
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading5">
                 <h4 class="clearfix panel-title">
@@ -333,16 +445,15 @@
             </div>
             <div class="panel-collapse collapse" role="tabpanel" id="collapse5">
                 <div class="panel-body">
-                    <p>As with any medical procedure, there are some risks involved. We will go through these with you fully before your scan begins. If your doctor has requested a scan using a special dye called contrast (gadolinium), there are a few additional risks to be aware of, including the possibility of an allergic reaction. We will discuss all of this with you in person.</p>
-                    
+                    <p>As with any medical procedure, there are some risks involved. We will go through these with you fully before your scan begins.</p>
                     <h4 style="color:#005eb8">Pregnancy</h4>
-                    <p>If you are pregnant, or think there is a chance you might be, please contact the Radiology department before your appointment. We take extra care during pregnancy. Your doctor and a specialist radiologist will discuss your specific case to decide if the scan is urgent or if it should be postponed.</p>
+                    <p>If you are pregnant, please contact the Radiology department before your appointment.</p>
                     <p><a href="https://publicdocuments.sth.nhs.uk/pil5156.pdf" target="_blank" class="btn btn-secondary">Download Pregnancy and MRI Information Leaflet (PIL5156)</a></p>
                 </div>
             </div>
         </div>
 
-        <!-- Panel 7: During the scan -->
+        <!-- Panel 7: During -->
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading6">
                 <h4 class="clearfix panel-title">
@@ -353,26 +464,22 @@
             </div>
             <div class="panel-collapse collapse" role="tabpanel" id="collapse6">
                 <div class="panel-body">
-                    <p>You will be asked to lie flat on the scanner table. We will provide cushioning to protect your back or any other areas you feel require extra support. The radiographer will help you place single-use earplugs provided by the trust.</p>
-                    <p>The radiographer will slowly move you into the scanner which is open at both ends. The scanner has strip lights along the length of it and a fan to make the scanner more comfortable. In some scanners, we have small mirrors which let you see out. Music can sometimes be played through the speakers or headphones.</p>
-                    
+                    <p>You will be asked to lie flat on the scanner table. The radiographer will help you place single-use earplugs provided by the trust.</p>
                     <p><strong>What to expect:</strong></p>
                     <ul>
-                        <li><strong>Loud Noise:</strong> The scanner makes loud tapping and banging noises. We will provide you with headphones/earplugs.</li>
-                        <li><strong>Physical Sensations:</strong> You might feel twitching or 'pins and needles' in your arms or legs. This is caused by the magnets stimulating your peripheral nerves/muscles; it is temporary and normal.</li>
-                        <li><strong>Temperature:</strong> If your scan takes a long time you may start to feel slightly warm. The radiographers can adjust the airflow if required.</li>
-                        <li><strong>Staying in Control:</strong> We will give you a patient call bell/buzzer to hold. You can press this at any time if you feel uncomfortable or wish to stop the scan.</li>
+                        <li><strong>Loud Noise:</strong> Tapping and banging noises.</li>
+                        <li><strong>Sensations:</strong> Occasional twitching (nerve stimulation).</li>
+                        <li><strong>Temperature:</strong> You may feel slightly warm.</li>
                     </ul>
-
                     <div class="well">
-                        <p><strong>Watch Video:</strong> These links are to short videos that show some examples of the typical scanners and procedures we carry out at Sheffield.</p>
-                        <a href="#">[Link to STH MRI patient experience videos]</a>
+                        <p><strong>Watch Video:</strong> These links are to short videos showing our scanners.</p>
+                        <a href="#">[Link to STH MRI videos]</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Panel 8: After your scan -->
+        <!-- Panel 8: After -->
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="heading7">
                 <h4 class="clearfix panel-title">
@@ -383,7 +490,7 @@
             </div>
             <div class="panel-collapse collapse" role="tabpanel" id="collapse7">
                 <div class="panel-body">
-                    <p>Once your scan is complete you will be free to go home, or continue to attend any other appointments. A radiologist will review your scan and prepare a formal report. This report will be sent to your referring doctor.</p>
+                    <p>Once your scan is complete you will be free to go home. A radiologist will review your scan and prepare a report for your doctor.</p>
                 </div>
             </div>
         </div>
@@ -399,8 +506,7 @@
             </div>
             <div class="panel-collapse collapse" role="tabpanel" id="collapse8">
                 <div class="panel-body">
-                    <p>Your medical team selected an MRI scan as the most appropriate test for you after considering all the risks and benefits. Alternatives such as CT scans or ultrasounds do exist, but they are not always suitable for every condition. If you wish to discuss these other options, please speak with your referring doctor or nurse before your appointment.</p>
-                    <p>The decision to have this scan is entirely yours. If you decide not to go ahead it will not affect the standard of care you receive from us. However, without the MRI, your doctor may not have all the information they need to provide a precise diagnosis.</p>
+                    <p>Your medical team selected an MRI scan as the most appropriate test. Alternatives such as CT or ultrasound may exist but aren't always suitable.</p>
                 </div>
             </div>
         </div>
@@ -416,15 +522,15 @@
             </div>
             <div class="panel-collapse collapse" role="tabpanel" id="collapse9">
                 <div class="panel-body">
-                    <p>We have created specific information leaflets for many of the different types of MRI scans we perform. These leaflets provide detailed information about what to expect during that specific examination.</p>
-                    <p><strong>Common MRI Leaflets:</strong></p>
+                    <p>We have created specific information leaflets for many different types of MRI scans.</p>
+                    <p><strong>Common Leaflets:</strong></p>
                     <ul>
                         <li><a href="https://publicdocuments.sth.nhs.uk/pil4012.pdf" target="_blank">Cardiac MRI (Heart) - PIL4012</a></li>
                         <li><a href="https://publicdocuments.sth.nhs.uk/pil2602.pdf" target="_blank">Breast MRI - PIL2602</a></li>
                     </ul>
                     <div class="well">
                         <p><strong>Looking for a different leaflet?</strong><br>
-                        You can search the full Sheffield Teaching Hospitals patient information library for other MRI-related documents.</p>
+                        Search the full library:</p>
                         <a href="https://www.sth.nhs.uk/patients-visitor-information/patient-information-leaflets/?s=mri" target="_blank" class="btn btn-secondary">Search STH Patient Information Leaflets</a>
                     </div>
                 </div>
@@ -436,174 +542,3 @@
             <div class="panel-heading" role="tab" id="heading10">
                 <h4 class="clearfix panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" href="#collapse10">
-                        How to find us
-                    </a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse" role="tabpanel" id="collapse10">
-                <div class="panel-body">
-                    <p>We are located across the Northern General Hospital and Royal Hallamshire Hospital sites. Please verify which location you need to attend by checking your appointment letter.</p>
-                    <p>For detailed information on maps, public transport, and parking at our hospitals, please visit our dedicated travel page:</p>
-                    <a href="https://www.sth.nhs.uk/patients-visitor-information/how-to-find-us/" target="_blank" class="btn btn-secondary">View maps and travel information on the STH website</a>
-                </div>
-            </div>
-        </div>
-
-    </div> <!-- End Accordion -->
-</div>
-
-<!-- [ORIGINAL JQUERY SCRIPT FOR ACCORDION TOGGLING] -->
-<script>
-	$(document).ready(function() {
-		$('.panel.panel-default').each(function(i) {
-			// This preserves the original ID logic from the PALS page
-			$(this).find('.panel-heading').prop('id', 'heading' + i);
-			$(this).find('.panel-collapse').prop('aria-labelledby', 'heading' + i);
-			$(this).find('a.collapsed').prop('href', '#collapse' + i);
-			$(this).find('a.collapsed').prop('aria-controls', 'collapse' + i);
-			$(this).find('.panel-collapse').prop('id', 'collapse' + i);
-		});
-	});
-</script>
-
-<!-- [ORIGINAL GALLERY SCRIPT LOGIC ADAPTED] -->
-<script>
-    // --- MRI SCANNER GALLERY LOGIC ---
-    const imageFiles = [
-        'mri-scanner-1.jpg',
-        'mri-scanner-2.jpg',
-        'mri-scanner-3.jpg',
-        'mri-scanner-4.jpg',
-        'mri-scanner-5.jpg',
-        'mri-scanner-6.jpg'
-    ];
-
-    let currentImageIndex = 0;
-    const imgElement = document.getElementById('mri-gallery-image');
-    const counterElement = document.getElementById('gallery-counter');
-
-    function updateGallery() {
-        if(imgElement && counterElement) {
-            imgElement.src = imageFiles[currentImageIndex];
-            counterElement.textContent = `Image ${currentImageIndex + 1} of ${imageFiles.length}`;
-            imgElement.style.opacity = 0;
-            setTimeout(() => { imgElement.style.opacity = 1; }, 50);
-        }
-    }
-
-    if (imageFiles.length > 0 && imgElement) {
-        imgElement.style.transition = "opacity 0.3s ease-in-out";
-        // updateGallery(); // Initial load done by HTML src
-    }
-
-    const btnPrev = document.getElementById('btn-prev');
-    if(btnPrev) {
-        btnPrev.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex--;
-            if (currentImageIndex < 0) currentImageIndex = imageFiles.length - 1;
-            updateGallery();
-        });
-    }
-
-    const btnNext = document.getElementById('btn-next');
-    if(btnNext) {
-        btnNext.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex++;
-            if (currentImageIndex >= imageFiles.length) currentImageIndex = 0;
-            updateGallery();
-        });
-    }
-
-    // --- MRI SCANS GALLERY LOGIC ---
-    const scanFiles = [
-        'Picture1.jpg', 'Picture2.jpg', 'Picture3.jpg', 'Picture4.jpg',
-        'Picture5.jpg', 'Picture6.jpg', 'Picture7.jpg', 'Picture8.jpg',
-        'Picture9.jpg', 'Picture10.jpg', 'Picture11.jpg', 'Picture12.jpg',
-        'Picture13.jpg', 'Picture14.jpg', 'Picture15.jpg', 'Picture16.jpg',
-        'Picture17.jpg', 'Picture18.jpg', 'Picture19.jpg', 'Picture20.jpg',
-        'Picture21.jpg', 'Picture22.jpg', 'Picture23.jpg', 'Picture24.jpg',
-        'Picture25.jpg'
-    ];
-
-    let currentScanIndex = 0;
-    const scanImgElement = document.getElementById('mri-scan-image');
-    const scanCounterElement = document.getElementById('scan-counter');
-
-    function updateScanGallery() {
-        if(scanImgElement && scanCounterElement) {
-            scanImgElement.src = scanFiles[currentScanIndex];
-            scanCounterElement.textContent = `Image ${currentScanIndex + 1} of ${scanFiles.length}`;
-            scanImgElement.style.opacity = 0;
-            setTimeout(() => { scanImgElement.style.opacity = 1; }, 50);
-        }
-    }
-
-    if (scanFiles.length > 0 && scanImgElement) {
-        scanImgElement.style.transition = "opacity 0.3s ease-in-out";
-        // updateScanGallery(); // Initial load done by HTML src
-    }
-
-    const scanBtnPrev = document.getElementById('scan-btn-prev');
-    if(scanBtnPrev) {
-        scanBtnPrev.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentScanIndex--;
-            if (currentScanIndex < 0) currentScanIndex = scanFiles.length - 1;
-            updateScanGallery();
-        });
-    }
-
-    const scanBtnNext = document.getElementById('scan-btn-next');
-    if(scanBtnNext) {
-        scanBtnNext.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentScanIndex++;
-            if (currentScanIndex >= scanFiles.length) currentScanIndex = 0;
-            updateScanGallery();
-        });
-    }
-</script>
-
-<div id="client_footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-4 small text-left">
-				<div id="social_media_links">
-                    <a href="https://www.facebook.com/SheffieldTeachingHospitals/" target="_blank" class="social_media_facebook" rel="noreferrer"><img src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/icon-facebook.png" width="31" height="31" alt="Facebook" title="Facebook"></a>
-                    <a href="https://www.linkedin.com/company/sheffield-teaching-hospitals-nhs-foundation-trust/?originalSubdomain=uk" target="_blank" class="social_media_linkedin" rel="noreferrer"><img src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/icon-linkedin.png" width="31" height="31" alt="LinkedIn" title="LinkedIn"></a>
-                    <a href="https://www.youtube.com/@sheffieldteachinghospitals9870" target="_blank" class="social_media_youtube" rel="noreferrer"><img src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/icon-youtube.png" width="31" height="31" alt="YouTube" title="YouTube"></a>
-                    <a href="https://www.instagram.com/sheffieldhospitals/?hl=en" target="_blank" class="social_media_instagram" rel="noreferrer"><img src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/icon-instagram.png" width="31" height="31" alt="Instagram" title="Instagram"></a>
-                </div>
-				<h3>Follow us on social media for all of our latest stories</h3>
-			</div>
-			<div class="col-sm-4 small text-left">
-				<h3><span style="color:#005eb8"><strong>Using Our Website</strong></span></h3>
-                <p><span style="font-size:larger"><a href="https://www.sth.nhs.uk/disclaimer/">Disclaimer</a></span></p>
-                <p><span style="font-size:larger"><a href="https://www.sth.nhs.uk/accessibility/">Accessibility</a></span></p>
-                <p><span style="font-size:larger"><a href="https://www.sth.nhs.uk/terms/">Terms</a></span></p>
-                <p><span style="font-size:larger"><a href="https://www.sth.nhs.uk/privacy/">Privacy Policy</a></span></p>
-                <p><span style="font-size:larger"><a href="https://www.sth.nhs.uk/cookie-policy/">Cookie Polic</a>y</span></p>
-                <p><span style="font-size:larger"><a href="https://www.sth.nhs.uk/sitemap/">Site Map</a></span></p>
-			</div>
-			<div class="col-sm-4 small text-left">
-				<p style="text-align:center"><strong><a href="https://www.accessable.co.uk/sheffield-teaching-hospitals-nhs-foundation-trust"><span style="font-size:larger">Click here or the image below to open accessable</span></a></strong></p>
-                <p><a href="https://www.accessable.co.uk/sheffield-teaching-hospitals-nhs-foundation-trust"><img alt="" class="img-responsive" height="236" src="./Patient Advice and Liaison Service (PALS) - Sheffield Teaching Hospital_files/AccessAble-Logo.png" width="712"></a></p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div id="footer">
-	<div class="container small text-center">
-		© 2026 Sheffield Teaching Hospital
-		&nbsp;|&nbsp;
-		<a href="https://www.quietstorm.net/clever-websites/" target="_blank" rel="noopener">Website Design</a> <a href="https://www.quietstorm.net/" target="_blank" rel="noopener">Quiet Storm</a> Solutions Ltd&nbsp;|&nbsp;<a href="#" onclick="return false;">Manage Cookie Settings</a>
-	</div>
-</div>
-
-<a href="#" id="back_to_top_btn" class="btn btn-default" title="Go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
-
-</body>
-</html>
