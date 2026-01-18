@@ -3,332 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magnetic Resonance Imaging (MRI) - Sheffield Teaching Hospitals</title>
+    <title>Magnetic Resonance Imaging - Sheffield Teaching Hospitals</title>
     <style>
-        /* --- STH COLOR PALETTE & VARIABLES --- */
-        :root {
-            --sth-dark-blue: #003366;   /* Main Header/Footer Blue */
-            --sth-light-blue: #005EB8;  /* NHS Blue for links/accents */
-            --sth-hover-blue: #002244;
-            --sth-grey-bg: #f4f4f4;
-            --sth-text: #333333;
-            --sth-border: #e5e5e5;
-            --white: #ffffff;
-        }
-
-        /* --- RESET & BASIC SETUP --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
+        /* --- STH SPECIFIC FONTS & RESETS --- */
         body {
-            font-family: Arial, Helvetica, sans-serif; /* STH Standard Font */
-            color: var(--sth-text);
-            line-height: 1.6;
-            background-color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            line-height: 1.5;
         }
 
-        a { color: var(--sth-light-blue); text-decoration: none; font-weight: bold; }
+        a { text-decoration: none; color: #005EB8; }
         a:hover { text-decoration: underline; }
+        * { box-sizing: border-box; }
 
-        /* --- HEADER SECTION (STH STYLE) --- */
-        header { background-color: var(--white); }
+        /* --- 1. TOP UTILITY BAR (Grey) --- */
+        .top-utility-bar {
+            background-color: #f1f1f1;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 5px 0;
+            font-size: 11px;
+            text-align: right;
+        }
+        .top-utility-inner {
+            max-width: 984px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        .top-utility-bar a {
+            color: #666;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        .top-utility-bar a:hover { text-decoration: underline; color: #333; }
 
-        .header-top {
-            max-width: 1100px; margin: 0 auto; padding: 20px;
-            display: flex; justify-content: space-between; align-items: center;
+        /* --- 2. MAIN HEADER (Logo & Search) --- */
+        .main-header {
+            background-color: #fff;
+            padding: 20px 0;
         }
-
-        .logo-area {
-            display: flex; align-items: center; text-decoration: none; color: var(--sth-dark-blue);
-        }
-        
-        .nhs-logo {
-            background-color: var(--sth-light-blue); color: white;
-            font-weight: 700; font-style: italic; font-size: 24px;
-            padding: 5px 10px; margin-right: 15px; letter-spacing: -1px;
-        }
-
-        .trust-title {
-            font-size: 20px; font-weight: 400; line-height: 1.2; color: var(--sth-dark-blue);
-        }
-        .trust-title strong { display: block; font-weight: 700; font-size: 22px; }
-
-        /* STH Search Bar Style */
-        .search-container { display: flex; }
-        .search-input {
-            padding: 8px; border: 1px solid #ccc; width: 200px;
-        }
-        .search-btn {
-            background-color: var(--sth-dark-blue); color: white; border: none;
-            padding: 8px 15px; font-weight: bold; cursor: pointer;
-        }
-
-        /* Main Navigation Bar */
-        .main-nav { background-color: var(--sth-dark-blue); }
-        .nav-container {
-            max-width: 1100px; margin: 0 auto; padding: 0 20px;
+        .header-inner {
+            max-width: 984px;
+            margin: 0 auto;
+            padding: 0 10px;
             display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* Aligns logo and search bottom */
         }
-        .nav-item {
-            color: white; padding: 15px 20px; text-decoration: none; font-weight: normal; font-size: 14px;
+
+        /* Logo */
+        .sth-logo-img {
+            max-width: 300px;
+            height: auto;
+            display: block;
         }
-        .nav-item:hover, .nav-item.active { background-color: var(--sth-light-blue); text-decoration: none; }
+
+        /* Search Box Styles (Replicating STH) */
+        .header-search {
+            text-align: right;
+            margin-bottom: 5px;
+        }
+        .header-search form {
+            display: flex;
+            align-items: center;
+        }
+        .header-search label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 10px;
+        }
+        .search-field {
+            padding: 4px;
+            border: 1px solid #999;
+            width: 180px;
+            height: 28px;
+        }
+        .search-submit {
+            background-color: #003366; /* STH Dark Blue */
+            color: #fff;
+            border: none;
+            padding: 5px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            height: 28px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .search-submit:hover { background-color: #005EB8; }
+
+        /* --- 3. NAVIGATION BAR (Dark Blue) --- */
+        .main-navigation {
+            background-color: #003366;
+            border-top: 1px solid #002244;
+            border-bottom: 4px solid #fff; /* Slight visual separation */
+        }
+        .nav-inner {
+            max-width: 984px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .nav-list li {
+            margin: 0;
+            padding: 0;
+        }
+        .nav-list li a {
+            display: block;
+            padding: 12px 18px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 13px;
+            text-decoration: none;
+            border-right: 1px solid #1a4775;
+        }
+        .nav-list li:first-child a { border-left: 1px solid #1a4775; }
+        .nav-list li a:hover, .nav-list li a.active {
+            background-color: #005EB8; /* NHS Blue hover */
+            text-decoration: none;
+        }
 
         /* --- BREADCRUMBS --- */
-        .breadcrumbs {
-            max-width: 1100px; margin: 0 auto; padding: 15px 20px;
-            font-size: 12px; color: #666;
+        .breadcrumbs-bar {
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 8px 0;
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 20px;
         }
-        .breadcrumbs a { color: #666; font-weight: normal; }
-        .breadcrumbs span { margin: 0 5px; }
+        .breadcrumbs-inner {
+            max-width: 984px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        .breadcrumbs-bar a { color: #666; text-decoration: none; }
+        .breadcrumbs-bar a:hover { text-decoration: underline; }
 
-        /* --- MAIN LAYOUT --- */
+        /* --- MAIN PAGE CONTENT LAYOUT --- */
         .page-wrapper {
-            max-width: 1100px; margin: 0 auto; padding: 0 20px 50px 20px;
-            display: grid; grid-template-columns: 3fr 1fr; gap: 40px;
+            max-width: 984px;
+            margin: 0 auto;
+            padding: 0 10px 40px 10px;
+            display: grid;
+            grid-template-columns: 3fr 1fr; /* Content Left, Sidebar Right */
+            gap: 30px;
         }
 
-        /* --- CONTENT STYLING --- */
-        h1 {
-            color: var(--sth-dark-blue); font-size: 2.2em; margin-bottom: 20px;
-            border-bottom: 1px solid #ccc; padding-bottom: 15px; font-weight: normal;
+        /* --- TYPOGRAPHY (Matching STH Style) --- */
+        
+        /* Main Page Title */
+        h1.page-title {
+            color: #003366; /* STH Dark Blue */
+            font-size: 28px;
+            font-weight: normal;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #ccc;
         }
 
-        .intro-text { font-size: 1.1em; margin-bottom: 30px; }
+        /* Subheading */
+        h2.sub-heading {
+            color: #005EB8; /* NHS Blue */
+            font-size: 20px;
+            font-weight: normal;
+            margin: 20px 0 15px 0;
+        }
 
-        h2 { color: var(--sth-dark-blue); font-size: 1.5em; margin: 20px 0 10px 0; }
-        h3 { color: #333; font-size: 1.2em; margin: 15px 0; }
+        p.intro-text {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 25px;
+        }
 
-        /* --- ACCORDION (DROP DOWN BOXES) STYLING --- */
+        /* General Content Text */
+        p { font-size: 13px; margin-bottom: 15px; }
+        ul { font-size: 13px; margin-bottom: 15px; }
+
+        /* --- ACCORDIONS --- */
         .accordion-btn {
             background-color: #f4f4f4;
-            color: var(--sth-dark-blue);
+            color: #003366;
             cursor: pointer;
-            padding: 18px;
+            padding: 15px;
             width: 100%;
-            border: none;
+            border: 1px solid #e5e5e5;
+            border-bottom: none;
             text-align: left;
             outline: none;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
-            transition: 0.4s;
-            border-bottom: 1px solid #ddd;
+            transition: 0.3s;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
         }
-
-        .accordion-btn:hover { background-color: #e8e8e8; }
-        
+        .accordion-btn:last-of-type { border-bottom: 1px solid #e5e5e5; }
+        .accordion-btn:hover { background-color: #e9e9e9; }
         .accordion-btn.active {
-            background-color: var(--sth-dark-blue);
-            color: white;
+            background-color: #003366;
+            color: #fff;
+            border-color: #003366;
         }
-
-        /* The chevron icon */
         .accordion-btn::after {
-            content: '\002B'; /* Plus sign */
+            content: '+';
             font-weight: bold;
-            float: right;
-            margin-left: 5px;
-            font-size: 20px;
+            font-size: 18px;
         }
-
-        .accordion-btn.active::after { content: "\2212"; /* Minus sign */ }
+        .accordion-btn.active::after { content: '-'; }
 
         .accordion-panel {
-            padding: 0 18px;
+            padding: 0 15px;
             background-color: white;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.2s ease-out;
-            border-left: 1px solid #ddd;
-            border-right: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
+            border-left: 1px solid #e5e5e5;
+            border-right: 1px solid #e5e5e5;
         }
-        
+        .accordion-panel.open-border { border-bottom: 1px solid #e5e5e5; margin-bottom: 10px; }
         .accordion-content { padding: 20px 0; }
 
-        /* --- GALLERY STYLES --- */
+        /* --- GALLERY --- */
         .gallery-container {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-            border-radius: 4px;
+            background-color: #f9f9f9; border: 1px solid #ddd;
+            padding: 10px; margin: 15px 0; text-align: center;
         }
-        
         .gallery-image-wrapper {
-            background-color: #fff;
-            border: 1px solid #eee;
-            height: 350px; /* Fixed height to prevent page jumping */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            overflow: hidden;
+            background-color: #fff; border: 1px solid #eee;
+            height: 300px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 10px; overflow: hidden;
         }
-
-        .gallery-image-wrapper img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        .gallery-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            align-items: center;
-        }
-
+        .gallery-image-wrapper img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .gallery-controls { display: flex; justify-content: center; gap: 10px; align-items: center; }
         .gallery-btn {
-            background-color: var(--sth-light-blue);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.2s;
+            background-color: #005EB8; color: white; border: none;
+            padding: 5px 10px; font-size: 12px; font-weight: bold; cursor: pointer;
         }
+        .gallery-btn:hover { background-color: #003366; }
 
-        .gallery-btn:hover {
-            background-color: var(--sth-dark-blue);
-        }
+        /* --- BOXES --- */
+        .alert-box { background-color: #fff9e6; border: 1px solid #ffeeba; padding: 15px; border-left: 4px solid #ffc107; margin-bottom: 15px; }
+        .info-box { background-color: #e8f4fd; border: 1px solid #b8daff; padding: 15px; border-left: 4px solid #005EB8; margin-bottom: 15px; }
+        .checklist-box { background-color: #f9f9f9; border: 1px solid #eee; padding: 15px; margin-bottom: 15px; }
 
-        .gallery-counter {
-            font-size: 0.9em;
-            color: #555;
-            min-width: 80px;
-        }
-
-        /* --- ALERT & INFO BOXES --- */
-        .alert-box {
-            background-color: #fff9e6; border: 1px solid #ffeeba; 
-            padding: 15px; margin: 15px 0; border-left: 5px solid #ffc107;
-        }
-        
-        .checklist-box {
-            background-color: #f9f9f9; border: 1px solid #eee; padding: 15px;
-        }
-
-        /* --- SIDEBAR (STICKY) --- */
-        aside { position: relative; }
-        
-        .sticky-sidebar {
-            position: sticky; top: 20px;
-        }
-
+        /* --- SIDEBAR --- */
         .sidebar-box {
-            background: #f9f9f9; border: 1px solid #ddd; padding: 20px; margin-bottom: 20px;
+            background: #f4f4f4;
+            border: 1px solid #e5e5e5;
+            padding: 15px;
+            margin-bottom: 20px;
         }
-        
         .sidebar-box h3 {
-            color: var(--sth-dark-blue); margin-top: 0; border-bottom: 2px solid var(--sth-light-blue);
-            padding-bottom: 10px; margin-bottom: 15px;
+            color: #003366; margin-top: 0; font-size: 16px; 
+            border-bottom: 1px solid #ccc; padding-bottom: 8px; margin-bottom: 10px;
         }
-
-        .contact-details p { margin-bottom: 10px; font-size: 0.95em; }
-        
         .action-btn {
-            display: block; width: 100%; padding: 12px; margin-bottom: 10px;
-            background-color: var(--sth-light-blue); color: white; text-align: center;
-            border: none; border-radius: 4px; font-weight: bold; cursor: pointer;
-            text-decoration: none;
+            display: block; width: 100%; padding: 10px; margin-bottom: 5px;
+            background-color: #005EB8; color: white; text-align: center;
+            border: none; font-weight: bold; cursor: pointer; font-size: 13px;
         }
-        .action-btn:hover { background-color: var(--sth-dark-blue); text-decoration: none; }
-        .action-btn.print { background-color: #666; }
+        .action-btn:hover { background-color: #003366; text-decoration: none; }
+        .action-btn.print { background-color: #555; }
 
         /* --- FOOTER --- */
         footer {
-            background-color: var(--sth-dark-blue); color: white; padding: 30px 0; margin-top: 50px;
+            background-color: #003366; color: white; padding: 30px 0; margin-top: 40px; font-size: 12px;
         }
-        .footer-content {
-            max-width: 1100px; margin: 0 auto; padding: 0 20px; font-size: 0.9em;
-        }
-        .footer-links a { color: white; margin-right: 15px; font-weight: normal; }
+        .footer-inner { max-width: 984px; margin: 0 auto; padding: 0 10px; }
+        .footer-links a { color: #fff; margin-right: 15px; text-decoration: none; }
+        .footer-links a:hover { text-decoration: underline; }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 800px) {
+        @media (max-width: 768px) {
             .page-wrapper { grid-template-columns: 1fr; }
-            .header-top { flex-direction: column; align-items: flex-start; }
-            .search-container { margin-top: 15px; width: 100%; }
-            .search-input { width: 100%; }
-            .nav-container { flex-direction: column; padding: 0; }
-            .nav-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .header-inner { flex-direction: column; align-items: flex-start; }
+            .header-search { width: 100%; text-align: left; margin-top: 15px; }
+            .nav-list { flex-direction: column; }
+            .nav-list li a { border-right: none; border-bottom: 1px solid #1a4775; }
         }
     </style>
 </head>
 <body>
 
-    <!-- STH STYLE HEADER -->
-    <header>
-        <div class="header-top">
-            <a href="#" class="logo-area">
-                <div class="nhs-logo">NHS</div>
-                <div class="trust-title">
-                    Sheffield Teaching Hospitals<br>
-                    <strong>NHS Foundation Trust</strong>
-                </div>
-            </a>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search site...">
-                <button class="search-btn">Search</button>
-            </div>
+    <!-- 1. TOP UTILITY BAR -->
+    <div class="top-utility-bar">
+        <div class="top-utility-inner">
+            <a href="https://www.sth.nhs.uk/accessibility">Accessibility</a>
+            <a href="#content">Skip to Content</a>
+            <a href="https://www.sth.nhs.uk/site-map">Site Map</a>
+            <a href="https://www.sth.nhs.uk/contact-us">Contact Us</a>
         </div>
-
-        <nav class="main-nav">
-            <div class="nav-container">
-                <a href="#" class="nav-item">Home</a>
-                <a href="#" class="nav-item active">Patients & Visitors</a>
-                <a href="#" class="nav-item">Services</a>
-                <a href="#" class="nav-item">About Us</a>
-                <a href="#" class="nav-item">Work For Us</a>
-                <a href="#" class="nav-item">Research</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- BREADCRUMBS -->
-    <div class="breadcrumbs">
-        <a href="#">Home</a> <span>&gt;</span>
-        <a href="#">Patients and Visitors</a> <span>&gt;</span>
-        <a href="#">Radiology</a> <span>&gt;</span>
-        Having an MRI Scan
     </div>
 
-    <!-- MAIN PAGE LAYOUT -->
-    <div class="page-wrapper">
+    <!-- 2. MAIN HEADER (Logo & Search) -->
+    <header class="main-header">
+        <div class="header-inner">
+            <!-- Logo - Linking to STH Homepage -->
+            <a href="https://www.sth.nhs.uk/" class="logo-link">
+                <!-- Using absolute URL for STH Logo to ensure it renders -->
+                <img src="https://www.sth.nhs.uk/clientfiles/File/sth_logo_top.png" alt="Sheffield Teaching Hospitals NHS Foundation Trust" class="sth-logo-img">
+            </a>
+
+            <!-- Search -->
+            <div class="header-search">
+                <form action="https://www.sth.nhs.uk/search" method="get">
+                    <label for="search">Search Site</label>
+                    <input type="text" name="q" id="search" class="search-field" placeholder="">
+                    <button type="submit" class="search-submit">GO</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. NAVIGATION BAR -->
+    <nav class="main-navigation">
+        <div class="nav-inner">
+            <ul class="nav-list">
+                <li><a href="https://www.sth.nhs.uk/">Home</a></li>
+                <!-- Marked Active -->
+                <li><a href="https://www.sth.nhs.uk/patients-visitor-information" class="active">Patients & Visitors</a></li>
+                <li><a href="https://www.sth.nhs.uk/services">Services</a></li>
+                <li><a href="https://www.sth.nhs.uk/about-us">About Us</a></li>
+                <li><a href="https://www.sth.nhs.uk/work-for-us">Work For Us</a></li>
+                <li><a href="https://www.sth.nhs.uk/research-innovation">Research & Innovation</a></li>
+                <li><a href="https://www.sth.nhs.uk/news">News</a></li>
+                <li><a href="https://www.sth.nhs.uk/contact-us">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs-bar">
+        <div class="breadcrumbs-inner">
+            <a href="https://www.sth.nhs.uk/">Home</a> <span>&gt;</span>
+            <a href="https://www.sth.nhs.uk/patients-visitor-information">Patients & Visitors</a> <span>&gt;</span>
+            <a href="#">Radiology</a> <span>&gt;</span>
+            Magnetic Resonance Imaging
+        </div>
+    </div>
+
+    <!-- MAIN PAGE CONTENT -->
+    <div class="page-wrapper" id="content">
         
         <!-- LEFT COLUMN: CONTENT -->
         <main>
-            <h1>Magnetic Resonance Imaging: Having an MRI Scan</h1>
+            <!-- STH Style Page Titles -->
+            <h1 class="page-title">Magnetic Resonance Imaging</h1>
+            <h2 class="sub-heading">Having an MRI Scan</h2>
             
             <p class="intro-text">This page provides information about MRI scans. It is intended for use by patients (or their families and carers) who have been referred to our service.</p>
 
-            <!-- ACCORDION SECTIONS (DROP DOWN BOXES) -->
+            <!-- ACCORDIONS START -->
 
-            <!-- SECTION 0: What is an MRI? -->
+            <!-- SECTION: What is an MRI? -->
             <button class="accordion-btn">What is an MRI scan?</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
                     <p>An MRI scan is an examination used to diagnose medical conditions, injuries, or diseases. Once the scan is complete, a radiologist analyzes the images and sends a report to your doctor, clinical nurse specialist, or Allied Health professional (e.g., Physiotherapist).</p>
                     <p>The scanner works by using a strong magnetic field and radio waves to interact with the hydrogen atoms naturally found in your body. A special coil, placed over the part of the body being examined, detects signals produced by these atoms. Because different tissues—such as fat, muscle, and bone—produce different signals, a computer is able to translate this information into detailed images.</p>
                     
-                    <h3 style="text-align: center; margin-top: 30px; color: var(--sth-dark-blue);">Our MRI Scanners</h3>
+                    <h3 style="text-align: center; margin-top: 20px; color: #003366; font-size:16px;">Our MRI Scanners</h3>
                     <!-- MRI SCANNER GALLERY -->
                     <div class="gallery-container">
                         <div class="gallery-image-wrapper">
-                            <!-- Image src is set by JavaScript below -->
                             <img id="mri-gallery-image" src="" alt="MRI Scanner at Sheffield Teaching Hospitals">
                         </div>
                         <div class="gallery-controls">
-                            <button id="btn-prev" class="gallery-btn">&laquo; Previous</button>
-                            <span id="gallery-counter" class="gallery-counter">Image 1 of X</span>
+                            <button id="btn-prev" class="gallery-btn">&laquo; Prev</button>
+                            <span id="gallery-counter" class="gallery-counter">Image 1</span>
                             <button id="btn-next" class="gallery-btn">Next &raquo;</button>
                         </div>
                     </div>
@@ -336,24 +388,22 @@
                     <p><strong>How can MRI help?</strong><br>
                     MRI is used to visualise and distinguish selected areas of the body from surrounding tissues. MRI is particularly good for looking at muscles and soft tissue structures, such as the brain. An MRI scan can also help your doctor plan or carry out future treatments. The gallery below shows some of the images and types of images are produced on our scanners:</p>
 
-                    <!-- NEW: MRI SCANS GALLERY -->
-                    <h3 style="text-align: center; margin-top: 30px; color: var(--sth-dark-blue);">Examples of MRI Scans</h3>
+                    <h3 style="text-align: center; margin-top: 20px; color: #003366; font-size:16px;">Examples of MRI Scans</h3>
+                    <!-- MRI SCANS GALLERY -->
                     <div class="gallery-container">
                         <div class="gallery-image-wrapper">
-                            <!-- Image src is set by JavaScript below -->
                             <img id="mri-scan-image" src="" alt="Example of an MRI Scan">
                         </div>
                         <div class="gallery-controls">
-                            <button id="scan-btn-prev" class="gallery-btn">&laquo; Previous</button>
-                            <span id="scan-counter" class="gallery-counter">Image 1 of X</span>
+                            <button id="scan-btn-prev" class="gallery-btn">&laquo; Prev</button>
+                            <span id="scan-counter" class="gallery-counter">Image 1</span>
                             <button id="scan-btn-next" class="gallery-btn">Next &raquo;</button>
                         </div>
                     </div>
-
                 </div>
             </div>
             
-            <!-- SECTION 1 -->
+            <!-- SECTION: Before your MRI scan -->
             <button class="accordion-btn">Before your MRI scan</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
@@ -386,7 +436,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 2 -->
+            <!-- SECTION: Medication and Eating Guidance -->
             <button class="accordion-btn">Medication and Eating Guidance</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
@@ -404,15 +454,15 @@
                 </div>
             </div>
 
-            <!-- SECTION 3 -->
+            <!-- SECTION: What to wear -->
             <button class="accordion-btn">What to wear</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
                     <p>You should avoid wearing clothes that contain metal. Please bring suitable clothes to change into or we can provide you with a hospital gown.</p>
                     
                     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 250px; background: #eaffea; padding: 15px; border: 1px solid #d4edda;">
-                            <h3 style="margin-top:0; color: #007f3b;">You can wear:</h3>
+                        <div style="flex: 1; min-width: 200px; background: #eaffea; padding: 15px; border: 1px solid #d4edda;">
+                            <h3 style="margin-top:0; color: #007f3b; font-size:16px;">You can wear:</h3>
                             <ul style="margin-left: 20px;">
                                 <li>T-shirts</li>
                                 <li>Leggings</li>
@@ -420,8 +470,8 @@
                                 <li>Tracksuits/Joggers (if metal free)</li>
                             </ul>
                         </div>
-                        <div style="flex: 1; min-width: 250px; background: #ffeaea; padding: 15px; border: 1px solid #f5c6cb;">
-                            <h3 style="margin-top:0; color: #b21f2d;">You should NOT wear:</h3>
+                        <div style="flex: 1; min-width: 200px; background: #ffeaea; padding: 15px; border: 1px solid #f5c6cb;">
+                            <h3 style="margin-top:0; color: #b21f2d; font-size:16px;">You should NOT wear:</h3>
                             <ul style="margin-left: 20px;">
                                 <li>Bras (unless metal-free sports bra)</li>
                                 <li>Jeans or Belts</li>
@@ -435,7 +485,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 4 -->
+            <!-- SECTION: Asking for your consent -->
             <button class="accordion-btn">Asking for your consent</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
@@ -444,19 +494,19 @@
                 </div>
             </div>
 
-            <!-- SECTION 5 -->
+            <!-- SECTION: What are the risks? -->
             <button class="accordion-btn">What are the risks?</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
                     <p>As with any medical procedure, there are some risks involved. We will go through these with you fully before your scan begins. If your doctor has requested a scan using a special dye called contrast (gadolinium), there are a few additional risks to be aware of, including the possibility of an allergic reaction. We will discuss all of this with you in person.</p>
                     
-                    <h3>Pregnancy</h3>
+                    <h3 style="font-size:16px; margin-top:20px;">Pregnancy</h3>
                     <p>If you are pregnant, or think there is a chance you might be, please contact the Radiology department before your appointment. We take extra care during pregnancy. Your doctor and a specialist radiologist will discuss your specific case to decide if the scan is urgent or if it should be postponed.</p>
                     <a href="https://publicdocuments.sth.nhs.uk/pil5156.pdf" target="_blank" style="display:inline-block; margin-top:10px;">&darr; Download Pregnancy and MRI Information Leaflet (PIL5156)</a>
                 </div>
             </div>
 
-            <!-- SECTION 6 -->
+            <!-- SECTION: During the scan -->
             <button class="accordion-btn">During the scan</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
@@ -466,252 +516,4 @@
                     <p><strong>What to expect:</strong></p>
                     <ul style="margin-left: 20px;">
                         <li><strong>Loud Noise:</strong> The scanner makes loud tapping and banging noises. We will provide you with headphones/earplugs.</li>
-                        <li><strong>Physical Sensations:</strong> You might feel twitching or 'pins and needles' in your arms or legs. This is caused by the magnets stimulating your peripheral nerves/muscles; it is temporary and normal.</li>
-                        <li><strong>Temperature:</strong> If your scan takes a long time you may start to feel slightly warm. The radiographers can adjust the airflow if required.</li>
-                        <li><strong>Staying in Control:</strong> We will give you a patient call bell/buzzer to hold. You can press this at any time if you feel uncomfortable or wish to stop the scan.</li>
-                    </ul>
-
-                    <div style="background:#e8f4fd; padding: 15px; margin-top: 15px; border-left: 4px solid var(--sth-light-blue);">
-                        <p><strong>Watch Video:</strong> These links are to short videos that show some examples of the typical scanners and procedures we carry out at Sheffield.</p>
-                        <a href="#">[Link to STH MRI patient experience videos]</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION 7 -->
-            <button class="accordion-btn">After your scan</button>
-            <div class="accordion-panel">
-                <div class="accordion-content">
-                    <p>Once your scan is complete you will be free to go home, or continue to attend any other appointments. A radiologist will review your scan and prepare a formal report. This report will be sent to your referring doctor.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 8 -->
-            <button class="accordion-btn">Alternatives and Choice</button>
-            <div class="accordion-panel">
-                <div class="accordion-content">
-                    <p>Your medical team selected an MRI scan as the most appropriate test for you after considering all the risks and benefits. Alternatives such as CT scans or ultrasounds do exist, but they are not always suitable for every condition. If you wish to discuss these other options, please speak with your referring doctor or nurse before your appointment.</p>
-                    <p>The decision to have this scan is entirely yours. If you decide not to go ahead it will not affect the standard of care you receive from us. However, without the MRI, your doctor may not have all the information they need to provide a precise diagnosis.</p>
-                </div>
-            </div>
-
-            <!-- SECTION 9: MRI Patient Information Leaflets (NEW) -->
-            <button class="accordion-btn">MRI Patient Information Leaflets</button>
-            <div class="accordion-panel">
-                <div class="accordion-content">
-                    <p>We have created specific information leaflets for many of the different types of MRI scans we perform. These leaflets provide detailed information about what to expect during that specific examination.</p>
-                    
-                    <p><strong>Common MRI Leaflets:</strong></p>
-                    <ul style="margin-left: 20px; margin-bottom: 20px;">
-                        <li style="margin-bottom: 10px;">
-                            <a href="https://publicdocuments.sth.nhs.uk/pil4012.pdf" target="_blank">Cardiac MRI (Heart) - PIL4012 &raquo;</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="https://publicdocuments.sth.nhs.uk/pil2602.pdf" target="_blank">Breast MRI - PIL2602 &raquo;</a>
-                        </li>
-                    </ul>
-
-                    <div class="info-box">
-                        <p><strong>Looking for a different leaflet?</strong><br>
-                        You can search the full Sheffield Teaching Hospitals patient information library for other MRI-related documents.</p>
-                        <a href="https://www.sth.nhs.uk/patients-visitor-information/patient-information-leaflets/?s=mri" target="_blank" class="action-btn" style="width:auto; display:inline-block; margin-top:10px;">Search STH Patient Information Leaflets</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION 10: How to find us -->
-            <button class="accordion-btn">How to find us</button>
-            <div class="accordion-panel">
-                <div class="accordion-content">
-                    <p>We are located across the Northern General Hospital and Royal Hallamshire Hospital sites. Please verify which location you need to attend by checking your appointment letter.</p>
-                    <p>For detailed information on maps, public transport, and parking at our hospitals, please visit our dedicated travel page:</p>
-                    <a href="https://www.sth.nhs.uk/patients-visitor-information/how-to-find-us/" target="_blank" style="font-size: 1.1em;">
-                        View maps and travel information on the STH website &raquo;
-                    </a>
-                </div>
-            </div>
-
-        </main>
-
-        <!-- RIGHT COLUMN: SIDEBAR -->
-        <aside>
-            <div class="sticky-sidebar">
-                
-                <div class="sidebar-box">
-                    <h3>Contact Details</h3>
-                    <div class="contact-details">
-                        <p><strong>MRI Department</strong><br>
-                        Sheffield Teaching Hospitals<br>
-                        Herries Road<br>
-                        Sheffield, S5 7AU</p>
-                        
-                        <p style="margin-top: 15px;"><strong>Radiology Appointments:</strong><br>
-                        <a href="tel:01142680000">0114 268 0000</a></p>
-                        
-                        <p><strong>Main Switchboard:</strong><br>
-                        <a href="tel:01142434343">0114 243 4343</a></p>
-                    </div>
-                </div>
-
-                <div class="sidebar-box">
-                    <h3>More Information</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px; border-bottom: 1px dotted #ccc; padding-bottom: 5px;">
-                            <a href="https://www.nhs.uk/conditions/mri-scan/what-happens/">NHS Direct: MRI Scans</a>
-                        </li>
-                        <li style="margin-bottom: 10px; border-bottom: 1px dotted #ccc; padding-bottom: 5px;">
-                            <a href="#">NHS Clinical Knowledge Summaries</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <button class="action-btn" onclick="window.print()">Print this page</button>
-                <button class="action-btn print">Save as PDF</button>
-
-            </div>
-        </aside>
-
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">Sitemap</a> | 
-                <a href="#">Accessibility</a> | 
-                <a href="#">Privacy</a> | 
-                <a href="#">Cookies</a> | 
-                <a href="#">Contact Us</a>
-            </div>
-            <p style="margin-top: 20px;">&copy; Sheffield Teaching Hospitals NHS Foundation Trust</p>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT: Accordions & Image Galleries -->
-    <script>
-        // --- 1. ACCORDION LOGIC ---
-        var acc = document.getElementsByClassName("accordion-btn");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                /* Toggle between adding and removing the "active" class */
-                this.classList.toggle("active");
-
-                /* Toggle between hiding and showing the active panel */
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                } 
-            });
-        }
-
-        // --- 2. MRI SCANNER GALLERY LOGIC (First Gallery) ---
-        const imageFiles = [
-            'mri-scanner-1.jpg',
-            'mri-scanner-2.jpg',
-            'mri-scanner-3.jpg',
-            'mri-scanner-4.jpg',
-            'mri-scanner-5.jpg',
-            'mri-scanner-6.jpg',
-         //   'mri-scanner-7.jpg'
-        ];
-
-        let currentImageIndex = 0;
-        const imgElement = document.getElementById('mri-gallery-image');
-        const counterElement = document.getElementById('gallery-counter');
-
-        function updateGallery() {
-            imgElement.src = imageFiles[currentImageIndex];
-            counterElement.textContent = `Image ${currentImageIndex + 1} of ${imageFiles.length}`;
-            imgElement.style.opacity = 0;
-            setTimeout(() => { imgElement.style.opacity = 1; }, 50);
-        }
-
-        if (imageFiles.length > 0) {
-            currentImageIndex = Math.floor(Math.random() * imageFiles.length);
-            imgElement.style.transition = "opacity 0.3s ease-in-out";
-            updateGallery();
-        }
-
-        document.getElementById('btn-prev').addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex--;
-            if (currentImageIndex < 0) currentImageIndex = imageFiles.length - 1;
-            updateGallery();
-        });
-
-        document.getElementById('btn-next').addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex++;
-            if (currentImageIndex >= imageFiles.length) currentImageIndex = 0;
-            updateGallery();
-        });
-
-        // --- 3. MRI SCANS GALLERY LOGIC (Second Gallery) ---
-        // IMPORTANT: Rename your scan images to match these names:
-        const scanFiles = [
-            'Picture1.jpg',
-            'Picture2.jpg',
-            'Picture3.jpg',
-            'Picture4.jpg',
-            'Picture5.jpg',
-            'Picture6.jpg',
-            'Picture7.jpg',
-            'Picture8.jpg',
-            'Picture9.jpg',
-            'Picture10.jpg',
-            'Picture11.jpg',
-            'Picture12.jpg',
-            'Picture13.jpg',
-            'Picture14.jpg',
-            'Picture15.jpg',
-            'Picture16.jpg',
-            'Picture17.jpg',
-            'Picture18.jpg',
-            'Picture19.jpg',
-            'Picture20.jpg',
-            'Picture21.jpg',
-            'Picture22.jpg',
-            'Picture23.jpg',
-            'Picture24.jpg',
-            'Picture25.jpg'
-         //   'Picture26.jpg'
-        ];
-
-        let currentScanIndex = 0;
-        const scanImgElement = document.getElementById('mri-scan-image');
-        const scanCounterElement = document.getElementById('scan-counter');
-
-        function updateScanGallery() {
-            scanImgElement.src = scanFiles[currentScanIndex];
-            scanCounterElement.textContent = `Image ${currentScanIndex + 1} of ${scanFiles.length}`;
-            scanImgElement.style.opacity = 0;
-            setTimeout(() => { scanImgElement.style.opacity = 1; }, 50);
-        }
-
-        if (scanFiles.length > 0) {
-            currentScanIndex = Math.floor(Math.random() * scanFiles.length);
-            scanImgElement.style.transition = "opacity 0.3s ease-in-out";
-            updateScanGallery();
-        }
-
-        document.getElementById('scan-btn-prev').addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentScanIndex--;
-            if (currentScanIndex < 0) currentScanIndex = scanFiles.length - 1;
-            updateScanGallery();
-        });
-
-        document.getElementById('scan-btn-next').addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentScanIndex++;
-            if (currentScanIndex >= scanFiles.length) currentScanIndex = 0;
-            updateScanGallery();
-        });
-    </script>
-
-</body>
-</html>
+                        <li><stro
