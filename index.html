@@ -646,4 +646,77 @@
                 <!-- Text gets injected here automatically by Javascript -->
             </div>
         </div>
-    </di
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Sitemap</a> | 
+                <a href="#">Accessibility</a> | 
+                <a href="#">Privacy</a> | 
+                <a href="#">Cookies</a> | 
+                <a href="#">Contact Us</a>
+            </div>
+            <p style="margin-top: 20px;">&copy; Sheffield Teaching Hospitals NHS Foundation Trust</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // --- 1. ACCORDION LOGIC ---
+        var acc = document.getElementsByClassName("accordion-btn");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+
+        // --- 2. LIGHTBOX MODAL LOGIC ---
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("modal-img");
+        const modalCaption = document.getElementById("modal-caption");
+
+        // Select all the thumbnail links
+        const thumbnails = document.querySelectorAll('.thumbnail-item');
+
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function(e) {
+                e.preventDefault(); // Stop it from opening a new tab
+                
+                // Get the image source and the custom description text
+                const imgSrc = this.getAttribute('href');
+                const desc = this.getAttribute('data-desc');
+                
+                // Load them into the modal
+                modalImg.src = imgSrc;
+                modalCaption.textContent = desc;
+                
+                // Show the modal
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = 'none';
+            modalImg.src = ''; // clear image source
+        }
+
+        // Close modal when clicking outside of the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
