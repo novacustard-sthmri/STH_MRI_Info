@@ -125,7 +125,6 @@
             color: white;
         }
 
-        /* The chevron icon */
         .accordion-btn::after {
             content: '\002B'; /* Plus sign */
             font-weight: bold;
@@ -149,61 +148,51 @@
         
         .accordion-content { padding: 20px 0; }
 
-        /* --- GALLERY STYLES --- */
-        .gallery-container {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-            border-radius: 4px;
-        }
-        
-        .gallery-image-wrapper {
-            background-color: #fff;
-            border: 1px solid #eee;
-            height: 350px; /* Fixed height to prevent page jumping */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-
-        .gallery-image-wrapper img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        .gallery-controls {
-            display: flex;
-            justify-content: center;
+        /* --- GALLERY STYLES (NEW SIMPLE GRIDS) --- */
+        .thumbnail-grid-3x2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            align-items: center;
+            margin: 20px 0;
         }
 
-        .gallery-btn {
-            background-color: var(--sth-light-blue);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
+        .thumbnail-grid-5x5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .thumbnail-item {
+            border: 1px solid #ddd;
             border-radius: 4px;
-            transition: background 0.2s;
+            overflow: hidden;
+            background: #f9f9f9;
+            display: block;
+            aspect-ratio: 1; /* Makes the thumbnails perfectly square */
+            text-decoration: none;
         }
 
-        .gallery-btn:hover {
-            background-color: var(--sth-dark-blue);
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images fill the square without stretching */
+            display: block;
+            transition: transform 0.2s ease-in-out;
         }
 
-        .gallery-counter {
-            font-size: 0.9em;
-            color: #555;
-            min-width: 80px;
+        .thumbnail-item:hover img {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 800px) {
+            .thumbnail-grid-3x2 { grid-template-columns: repeat(2, 1fr); }
+            .thumbnail-grid-5x5 { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        }
+        @media (max-width: 500px) {
+            .thumbnail-grid-3x2 { grid-template-columns: 1fr; }
+            .thumbnail-grid-5x5 { grid-template-columns: repeat(3, 1fr); }
         }
 
         /* --- ALERT & INFO BOXES --- */
@@ -320,36 +309,49 @@
                     <p>The scanner works by using a strong magnetic field and radio waves to interact with the hydrogen atoms naturally found in your body. A special coil, placed over the part of the body being examined, detects signals produced by these atoms. Because different tissues—such as fat, muscle, and bone—produce different signals, a computer is able to translate this information into detailed images.</p>
                     
                     <h3 style="text-align: center; margin-top: 30px; color: var(--sth-dark-blue);">Our MRI Scanners</h3>
-                    <!-- MRI SCANNER GALLERY -->
-                    <div class="gallery-container">
-                        <div class="gallery-image-wrapper">
-                            <!-- Image src is set by JavaScript below -->
-                            <img id="mri-gallery-image" src="" alt="MRI Scanner at Sheffield Teaching Hospitals">
-                        </div>
-                        <div class="gallery-controls">
-                            <button id="btn-prev" class="gallery-btn">&laquo; Previous</button>
-                            <span id="gallery-counter" class="gallery-counter">Image 1 of X</span>
-                            <button id="btn-next" class="gallery-btn">Next &raquo;</button>
-                        </div>
+                    
+                    <!-- NEW 3x2 MRI SCANNER THUMBNAIL GRID -->
+                    <div class="thumbnail-grid-3x2">
+                        <a href="mri-scanner-1.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-1.jpg" alt="MRI Scanner 1"></a>
+                        <a href="mri-scanner-2.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-2.jpg" alt="MRI Scanner 2"></a>
+                        <a href="mri-scanner-3.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-3.jpg" alt="MRI Scanner 3"></a>
+                        <a href="mri-scanner-4.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-4.jpg" alt="MRI Scanner 4"></a>
+                        <a href="mri-scanner-5.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-5.jpg" alt="MRI Scanner 5"></a>
+                        <a href="mri-scanner-6.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-6.jpg" alt="MRI Scanner 6"></a>
                     </div>
     
                     <p><strong>How can MRI help?</strong><br>
                     MRI is used to visualise and distinguish selected areas of the body from surrounding tissues. MRI is particularly good for looking at muscles and soft tissue structures, such as the brain. An MRI scan can also help your doctor plan or carry out future treatments. The gallery below shows some of the images and types of images produced on our scanners:</p>
 
-                    <!-- NEW: MRI SCANS GALLERY -->
+                    <!-- NEW 5x5 MRI SCANS THUMBNAIL GRID -->
                     <h3 style="text-align: center; margin-top: 30px; color: var(--sth-dark-blue);">Examples of MRI Scans</h3>
-                    <div class="gallery-container">
-                        <div class="gallery-image-wrapper">
-                            <!-- Image src is set by JavaScript below -->
-                            <img id="mri-scan-image" src="" alt="Example of an MRI Scan">
-                        </div>
-                        <div class="gallery-controls">
-                            <button id="scan-btn-prev" class="gallery-btn">&laquo; Previous</button>
-                            <span id="scan-counter" class="gallery-counter">Image 1 of X</span>
-                            <button id="scan-btn-next" class="gallery-btn">Next &raquo;</button>
-                        </div>
+                    <div class="thumbnail-grid-5x5">
+                        <a href="Picture1.jpg" target="_blank" class="thumbnail-item"><img src="Picture1.jpg" alt="MRI Scan Example 1"></a>
+                        <a href="Picture2.jpg" target="_blank" class="thumbnail-item"><img src="Picture2.jpg" alt="MRI Scan Example 2"></a>
+                        <a href="Picture3.jpg" target="_blank" class="thumbnail-item"><img src="Picture3.jpg" alt="MRI Scan Example 3"></a>
+                        <a href="Picture4.jpg" target="_blank" class="thumbnail-item"><img src="Picture4.jpg" alt="MRI Scan Example 4"></a>
+                        <a href="Picture5.jpg" target="_blank" class="thumbnail-item"><img src="Picture5.jpg" alt="MRI Scan Example 5"></a>
+                        <a href="Picture6.jpg" target="_blank" class="thumbnail-item"><img src="Picture6.jpg" alt="MRI Scan Example 6"></a>
+                        <a href="Picture7.jpg" target="_blank" class="thumbnail-item"><img src="Picture7.jpg" alt="MRI Scan Example 7"></a>
+                        <a href="Picture8.jpg" target="_blank" class="thumbnail-item"><img src="Picture8.jpg" alt="MRI Scan Example 8"></a>
+                        <a href="Picture9.jpg" target="_blank" class="thumbnail-item"><img src="Picture9.jpg" alt="MRI Scan Example 9"></a>
+                        <a href="Picture10.jpg" target="_blank" class="thumbnail-item"><img src="Picture10.jpg" alt="MRI Scan Example 10"></a>
+                        <a href="Picture11.jpg" target="_blank" class="thumbnail-item"><img src="Picture11.jpg" alt="MRI Scan Example 11"></a>
+                        <a href="Picture12.jpg" target="_blank" class="thumbnail-item"><img src="Picture12.jpg" alt="MRI Scan Example 12"></a>
+                        <a href="Picture13.jpg" target="_blank" class="thumbnail-item"><img src="Picture13.jpg" alt="MRI Scan Example 13"></a>
+                        <a href="Picture14.jpg" target="_blank" class="thumbnail-item"><img src="Picture14.jpg" alt="MRI Scan Example 14"></a>
+                        <a href="Picture15.jpg" target="_blank" class="thumbnail-item"><img src="Picture15.jpg" alt="MRI Scan Example 15"></a>
+                        <a href="Picture16.jpg" target="_blank" class="thumbnail-item"><img src="Picture16.jpg" alt="MRI Scan Example 16"></a>
+                        <a href="Picture17.jpg" target="_blank" class="thumbnail-item"><img src="Picture17.jpg" alt="MRI Scan Example 17"></a>
+                        <a href="Picture18.jpg" target="_blank" class="thumbnail-item"><img src="Picture18.jpg" alt="MRI Scan Example 18"></a>
+                        <a href="Picture19.jpg" target="_blank" class="thumbnail-item"><img src="Picture19.jpg" alt="MRI Scan Example 19"></a>
+                        <a href="Picture20.jpg" target="_blank" class="thumbnail-item"><img src="Picture20.jpg" alt="MRI Scan Example 20"></a>
+                        <a href="Picture21.jpg" target="_blank" class="thumbnail-item"><img src="Picture21.jpg" alt="MRI Scan Example 21"></a>
+                        <a href="Picture22.jpg" target="_blank" class="thumbnail-item"><img src="Picture22.jpg" alt="MRI Scan Example 22"></a>
+                        <a href="Picture23.jpg" target="_blank" class="thumbnail-item"><img src="Picture23.jpg" alt="MRI Scan Example 23"></a>
+                        <a href="Picture24.jpg" target="_blank" class="thumbnail-item"><img src="Picture24.jpg" alt="MRI Scan Example 24"></a>
+                        <a href="Picture25.jpg" target="_blank" class="thumbnail-item"><img src="Picture25.jpg" alt="MRI Scan Example 25"></a>
                     </div>
-
                 </div>
             </div>
             
@@ -495,7 +497,7 @@
                 </div>
             </div>
 
-            <!-- SECTION 9: MRI Patient Information Leaflets (NEW) -->
+            <!-- SECTION 9: MRI Patient Information Leaflets -->
             <button class="accordion-btn">MRI Patient Information Leaflets</button>
             <div class="accordion-panel">
                 <div class="accordion-content">
@@ -587,9 +589,9 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT: Accordions & Image Galleries -->
+    <!-- JAVASCRIPT -->
     <script>
-        // --- 1. ACCORDION LOGIC ---
+        // --- ACCORDION LOGIC ONLY ---
         var acc = document.getElementsByClassName("accordion-btn");
         var i;
 
@@ -607,112 +609,6 @@
                 } 
             });
         }
-
-        // --- 2. MRI SCANNER GALLERY LOGIC (First Gallery) ---
-        const imageFiles = [
-            'mri-scanner-1.jpg',
-            'mri-scanner-2.jpg',
-            'mri-scanner-3.jpg',
-            'mri-scanner-4.jpg',
-            'mri-scanner-5.jpg',
-            'mri-scanner-6.jpg',
-         //   'mri-scanner-7.jpg'
-        ];
-
-        let currentImageIndex = 0;
-        const imgElement = document.getElementById('mri-gallery-image');
-        const counterElement = document.getElementById('gallery-counter');
-
-        function updateGallery() {
-            imgElement.src = imageFiles[currentImageIndex];
-            counterElement.textContent = `Image ${currentImageIndex + 1} of ${imageFiles.length}`;
-            imgElement.style.opacity = 0;
-            setTimeout(() => { imgElement.style.opacity = 1; }, 50);
-        }
-
-        if (imageFiles.length > 0) {
-            currentImageIndex = Math.floor(Math.random() * imageFiles.length);
-            imgElement.style.transition = "opacity 0.3s ease-in-out";
-            updateGallery();
-        }
-
-        document.getElementById('btn-prev').addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex--;
-            if (currentImageIndex < 0) currentImageIndex = imageFiles.length - 1;
-            updateGallery();
-        });
-
-        document.getElementById('btn-next').addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentImageIndex++;
-            if (currentImageIndex >= imageFiles.length) currentImageIndex = 0;
-            updateGallery();
-        });
-
-        // --- 3. MRI SCANS GALLERY LOGIC (Second Gallery) ---
-        // IMPORTANT: Rename your scan images to match these names:
-        const scanFiles = [
-            'Picture1.jpg',
-            'Picture2.jpg',
-            'Picture3.jpg',
-            'Picture4.jpg',
-            'Picture5.jpg',
-            'Picture6.jpg',
-            'Picture7.jpg',
-            'Picture8.jpg',
-            'Picture9.jpg',
-            'Picture10.jpg',
-            'Picture11.jpg',
-            'Picture12.jpg',
-            'Picture13.jpg',
-            'Picture14.jpg',
-            'Picture15.jpg',
-            'Picture16.jpg',
-            'Picture17.jpg',
-            'Picture18.jpg',
-            'Picture19.jpg',
-            'Picture20.jpg',
-            'Picture21.jpg',
-            'Picture22.jpg',
-            'Picture23.jpg',
-            'Picture24.jpg',
-            'Picture25.jpg'
-         //   'Picture26.jpg'
-        ];
-
-        let currentScanIndex = 0;
-        const scanImgElement = document.getElementById('mri-scan-image');
-        const scanCounterElement = document.getElementById('scan-counter');
-
-        function updateScanGallery() {
-            scanImgElement.src = scanFiles[currentScanIndex];
-            scanCounterElement.textContent = `Image ${currentScanIndex + 1} of ${scanFiles.length}`;
-            scanImgElement.style.opacity = 0;
-            setTimeout(() => { scanImgElement.style.opacity = 1; }, 50);
-        }
-
-        if (scanFiles.length > 0) {
-            currentScanIndex = Math.floor(Math.random() * scanFiles.length);
-            scanImgElement.style.transition = "opacity 0.3s ease-in-out";
-            updateScanGallery();
-        }
-
-        document.getElementById('scan-btn-prev').addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentScanIndex--;
-            if (currentScanIndex < 0) currentScanIndex = scanFiles.length - 1;
-            updateScanGallery();
-        });
-
-        document.getElementById('scan-btn-next').addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentScanIndex++;
-            if (currentScanIndex >= scanFiles.length) currentScanIndex = 0;
-            updateScanGallery();
-        });
     </script>
-
 </body>
 </html>
-
