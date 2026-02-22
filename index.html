@@ -148,7 +148,7 @@
         
         .accordion-content { padding: 20px 0; }
 
-        /* --- GALLERY STYLES (NEW SIMPLE GRIDS) --- */
+        /* --- GALLERY STYLES (SIMPLE GRIDS) --- */
         .thumbnail-grid-3x2 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -171,6 +171,7 @@
             display: block;
             aspect-ratio: 1; /* Makes the thumbnails perfectly square */
             text-decoration: none;
+            cursor: pointer;
         }
 
         .thumbnail-item img {
@@ -184,6 +185,66 @@
         .thumbnail-item:hover img {
             transform: scale(1.05); /* Slight zoom effect on hover */
         }
+
+        /* --- IMAGE MODAL (LIGHTBOX) --- */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background-color: #fff;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+            background-color: #222; /* Dark background behind image if it doesn't fill box */
+        }
+        .modal-caption {
+            padding: 20px;
+            background-color: var(--sth-dark-blue);
+            color: white;
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: background 0.2s;
+        }
+        .modal-close:hover { background: rgba(0,0,0,0.9); }
 
         /* Responsive adjustments for mobile */
         @media (max-width: 800px) {
@@ -311,13 +372,14 @@
                     <h3 style="text-align: center; margin-top: 30px; color: var(--sth-dark-blue);">Our MRI Scanners</h3>
                     
                     <!-- NEW 3x2 MRI SCANNER THUMBNAIL GRID -->
+                    <!-- Note: Update the text inside data-desc="" when you are ready to change the descriptions -->
                     <div class="thumbnail-grid-3x2">
-                        <a href="mri-scanner-1.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-1.jpg" alt="MRI Scanner 1"></a>
-                        <a href="mri-scanner-2.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-2.jpg" alt="MRI Scanner 2"></a>
-                        <a href="mri-scanner-3.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-3.jpg" alt="MRI Scanner 3"></a>
-                        <a href="mri-scanner-4.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-4.jpg" alt="MRI Scanner 4"></a>
-                        <a href="mri-scanner-5.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-5.jpg" alt="MRI Scanner 5"></a>
-                        <a href="mri-scanner-6.jpg" target="_blank" class="thumbnail-item"><img src="mri-scanner-6.jpg" alt="MRI Scanner 6"></a>
+                        <a href="mri-scanner-1.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scanner 1. I will update this text later."><img src="mri-scanner-1.jpg" alt="MRI Scanner 1"></a>
+                        <a href="mri-scanner-2.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scanner 2. I will update this text later."><img src="mri-scanner-2.jpg" alt="MRI Scanner 2"></a>
+                        <a href="mri-scanner-3.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scanner 3. I will update this text later."><img src="mri-scanner-3.jpg" alt="MRI Scanner 3"></a>
+                        <a href="mri-scanner-4.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scanner 4. I will update this text later."><img src="mri-scanner-4.jpg" alt="MRI Scanner 4"></a>
+                        <a href="mri-scanner-5.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scanner 5. I will update this text later."><img src="mri-scanner-5.jpg" alt="MRI Scanner 5"></a>
+                        <a href="mri-scanner-6.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scanner 6. I will update this text later."><img src="mri-scanner-6.jpg" alt="MRI Scanner 6"></a>
                     </div>
     
                     <p><strong>How can MRI help?</strong><br>
@@ -326,31 +388,31 @@
                     <!-- NEW 5x5 MRI SCANS THUMBNAIL GRID -->
                     <h3 style="text-align: center; margin-top: 30px; color: var(--sth-dark-blue);">Examples of MRI Scans</h3>
                     <div class="thumbnail-grid-5x5">
-                        <a href="Picture1.jpg" target="_blank" class="thumbnail-item"><img src="Picture1.jpg" alt="MRI Scan Example 1"></a>
-                        <a href="Picture2.jpg" target="_blank" class="thumbnail-item"><img src="Picture2.jpg" alt="MRI Scan Example 2"></a>
-                        <a href="Picture3.jpg" target="_blank" class="thumbnail-item"><img src="Picture3.jpg" alt="MRI Scan Example 3"></a>
-                        <a href="Picture4.jpg" target="_blank" class="thumbnail-item"><img src="Picture4.jpg" alt="MRI Scan Example 4"></a>
-                        <a href="Picture5.jpg" target="_blank" class="thumbnail-item"><img src="Picture5.jpg" alt="MRI Scan Example 5"></a>
-                        <a href="Picture6.jpg" target="_blank" class="thumbnail-item"><img src="Picture6.jpg" alt="MRI Scan Example 6"></a>
-                        <a href="Picture7.jpg" target="_blank" class="thumbnail-item"><img src="Picture7.jpg" alt="MRI Scan Example 7"></a>
-                        <a href="Picture8.jpg" target="_blank" class="thumbnail-item"><img src="Picture8.jpg" alt="MRI Scan Example 8"></a>
-                        <a href="Picture9.jpg" target="_blank" class="thumbnail-item"><img src="Picture9.jpg" alt="MRI Scan Example 9"></a>
-                        <a href="Picture10.jpg" target="_blank" class="thumbnail-item"><img src="Picture10.jpg" alt="MRI Scan Example 10"></a>
-                        <a href="Picture11.jpg" target="_blank" class="thumbnail-item"><img src="Picture11.jpg" alt="MRI Scan Example 11"></a>
-                        <a href="Picture12.jpg" target="_blank" class="thumbnail-item"><img src="Picture12.jpg" alt="MRI Scan Example 12"></a>
-                        <a href="Picture13.jpg" target="_blank" class="thumbnail-item"><img src="Picture13.jpg" alt="MRI Scan Example 13"></a>
-                        <a href="Picture14.jpg" target="_blank" class="thumbnail-item"><img src="Picture14.jpg" alt="MRI Scan Example 14"></a>
-                        <a href="Picture15.jpg" target="_blank" class="thumbnail-item"><img src="Picture15.jpg" alt="MRI Scan Example 15"></a>
-                        <a href="Picture16.jpg" target="_blank" class="thumbnail-item"><img src="Picture16.jpg" alt="MRI Scan Example 16"></a>
-                        <a href="Picture17.jpg" target="_blank" class="thumbnail-item"><img src="Picture17.jpg" alt="MRI Scan Example 17"></a>
-                        <a href="Picture18.jpg" target="_blank" class="thumbnail-item"><img src="Picture18.jpg" alt="MRI Scan Example 18"></a>
-                        <a href="Picture19.jpg" target="_blank" class="thumbnail-item"><img src="Picture19.jpg" alt="MRI Scan Example 19"></a>
-                        <a href="Picture20.jpg" target="_blank" class="thumbnail-item"><img src="Picture20.jpg" alt="MRI Scan Example 20"></a>
-                        <a href="Picture21.jpg" target="_blank" class="thumbnail-item"><img src="Picture21.jpg" alt="MRI Scan Example 21"></a>
-                        <a href="Picture22.jpg" target="_blank" class="thumbnail-item"><img src="Picture22.jpg" alt="MRI Scan Example 22"></a>
-                        <a href="Picture23.jpg" target="_blank" class="thumbnail-item"><img src="Picture23.jpg" alt="MRI Scan Example 23"></a>
-                        <a href="Picture24.jpg" target="_blank" class="thumbnail-item"><img src="Picture24.jpg" alt="MRI Scan Example 24"></a>
-                        <a href="Picture25.jpg" target="_blank" class="thumbnail-item"><img src="Picture25.jpg" alt="MRI Scan Example 25"></a>
+                        <a href="Picture1.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 1. I will update this text later."><img src="Picture1.jpg" alt="MRI Scan Example 1"></a>
+                        <a href="Picture2.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 2. I will update this text later."><img src="Picture2.jpg" alt="MRI Scan Example 2"></a>
+                        <a href="Picture3.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 3. I will update this text later."><img src="Picture3.jpg" alt="MRI Scan Example 3"></a>
+                        <a href="Picture4.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 4. I will update this text later."><img src="Picture4.jpg" alt="MRI Scan Example 4"></a>
+                        <a href="Picture5.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 5. I will update this text later."><img src="Picture5.jpg" alt="MRI Scan Example 5"></a>
+                        <a href="Picture6.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 6. I will update this text later."><img src="Picture6.jpg" alt="MRI Scan Example 6"></a>
+                        <a href="Picture7.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 7. I will update this text later."><img src="Picture7.jpg" alt="MRI Scan Example 7"></a>
+                        <a href="Picture8.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 8. I will update this text later."><img src="Picture8.jpg" alt="MRI Scan Example 8"></a>
+                        <a href="Picture9.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 9. I will update this text later."><img src="Picture9.jpg" alt="MRI Scan Example 9"></a>
+                        <a href="Picture10.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 10. I will update this text later."><img src="Picture10.jpg" alt="MRI Scan Example 10"></a>
+                        <a href="Picture11.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 11. I will update this text later."><img src="Picture11.jpg" alt="MRI Scan Example 11"></a>
+                        <a href="Picture12.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 12. I will update this text later."><img src="Picture12.jpg" alt="MRI Scan Example 12"></a>
+                        <a href="Picture13.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 13. I will update this text later."><img src="Picture13.jpg" alt="MRI Scan Example 13"></a>
+                        <a href="Picture14.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 14. I will update this text later."><img src="Picture14.jpg" alt="MRI Scan Example 14"></a>
+                        <a href="Picture15.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 15. I will update this text later."><img src="Picture15.jpg" alt="MRI Scan Example 15"></a>
+                        <a href="Picture16.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 16. I will update this text later."><img src="Picture16.jpg" alt="MRI Scan Example 16"></a>
+                        <a href="Picture17.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 17. I will update this text later."><img src="Picture17.jpg" alt="MRI Scan Example 17"></a>
+                        <a href="Picture18.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 18. I will update this text later."><img src="Picture18.jpg" alt="MRI Scan Example 18"></a>
+                        <a href="Picture19.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 19. I will update this text later."><img src="Picture19.jpg" alt="MRI Scan Example 19"></a>
+                        <a href="Picture20.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 20. I will update this text later."><img src="Picture20.jpg" alt="MRI Scan Example 20"></a>
+                        <a href="Picture21.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 21. I will update this text later."><img src="Picture21.jpg" alt="MRI Scan Example 21"></a>
+                        <a href="Picture22.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 22. I will update this text later."><img src="Picture22.jpg" alt="MRI Scan Example 22"></a>
+                        <a href="Picture23.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 23. I will update this text later."><img src="Picture23.jpg" alt="MRI Scan Example 23"></a>
+                        <a href="Picture24.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 24. I will update this text later."><img src="Picture24.jpg" alt="MRI Scan Example 24"></a>
+                        <a href="Picture25.jpg" class="thumbnail-item" data-desc="Placeholder description for MRI Scan Example 25. I will update this text later."><img src="Picture25.jpg" alt="MRI Scan Example 25"></a>
                     </div>
                 </div>
             </div>
@@ -575,40 +637,13 @@
 
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">Sitemap</a> | 
-                <a href="#">Accessibility</a> | 
-                <a href="#">Privacy</a> | 
-                <a href="#">Cookies</a> | 
-                <a href="#">Contact Us</a>
+    <!-- POP-UP IMAGE VIEWER (MODAL) -->
+    <div id="image-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img id="modal-img" src="" alt="Full size view">
+            <div class="modal-caption" id="modal-caption">
+                <!-- Text gets injected here automatically by Javascript -->
             </div>
-            <p style="margin-top: 20px;">&copy; Sheffield Teaching Hospitals NHS Foundation Trust</p>
         </div>
-    </footer>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        // --- ACCORDION LOGIC ONLY ---
-        var acc = document.getElementsByClassName("accordion-btn");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                /* Toggle between adding and removing the "active" class */
-                this.classList.toggle("active");
-
-                /* Toggle between hiding and showing the active panel */
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                } 
-            });
-        }
-    </script>
-</body>
-</html>
+    </di
